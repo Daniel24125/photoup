@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { Anek_Latin } from "next/font/google";
 import "./globals.css";
+import Nav from "./components/template/Nav";
 
 const geistSans = Anek_Latin({
   variable: "--font-anek-latin-sans",
   subsets: ["latin"],
 });
-
-
 
 export const metadata: Metadata = {
   title: "PhotoUP",
@@ -21,9 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} antialiased w-screen flex justify-center`}
-      >
+      <body className={`${geistSans.variable} antialiased w-screen flex flex-col items-center`}>
+        <Nav/>  
         {children}
       </body>
     </html>
