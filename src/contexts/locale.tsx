@@ -34,7 +34,7 @@ export const useLanguage = (): LanguageContextValue => {
 
 // Language Provider Component
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('EN');
+  const [language, setLanguage] = useState<Language>('PT');
   // Simple language detection based on browser settings
   const detectLanguage = (): void => {
     try {

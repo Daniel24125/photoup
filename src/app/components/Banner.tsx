@@ -1,12 +1,16 @@
+
+"use client"
 import { LogoTextWhite } from '@/components/Logos';
 import { BannerMask } from '@/components/Masks';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/locale';
 import useWindowSize from '@/hooks/useWindowSize';
 import Link from 'next/link';
 import React from 'react';
 
 const Banner = ()=>{
     const { width} = useWindowSize();
+    const {language} = useLanguage()
 
     const viewBoxWidth = 1301;
     const viewBoxHeight = 877;
@@ -37,10 +41,10 @@ const Banner = ()=>{
                 <h4 className='text-5xl text-white'>Sustainability, Reimagined</h4>
                 <div className="flex gap-2">
                     <Link href="/contactos">
-                        <Button className=' cursor-pointer' variant="secondary">Contacte-nos</Button>
+                        <Button className=' cursor-pointer' variant="secondary">{language === "PT" ? "Contacte-nos": "Contact us"}</Button>
                     </Link>
                     <Link href="servicos">
-                        <Button className=' cursor-pointer'>Serviços</Button>
+                        <Button className=' cursor-pointer'>{language === "PT" ? "Serviços": "Services"}</Button>
                     </Link>
                 </div>
             </div>
