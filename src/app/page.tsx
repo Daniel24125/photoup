@@ -1,5 +1,4 @@
 "use client"
-import { LanguageProvider } from "@/contexts/locale";
 import Banner from "./components/Banner";
 
 export default function Home() { 
@@ -11,10 +10,10 @@ export default function Home() {
 const LandSection = () => {
 
   
-  return (<LanguageProvider>
+  return (
     <section className="w-full h-screen justify-center max-lg:p-0 p-5 relative">
       <Banner/>
     </section>
-  </LanguageProvider>
+ 
   );
 };

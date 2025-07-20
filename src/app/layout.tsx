@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Anek_Latin } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/template/Nav";
+import Options from "./components/template/Options";
+import { ThemeProvider } from "@/components/Theme";
+import { LanguageProvider } from "@/contexts/locale";
 
 const geistSans = Anek_Latin({
   variable: "--font-anek-latin-sans",
@@ -19,10 +22,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} antialiased w-screen flex flex-col items-center`}>
-        <Nav/>  
-        {children}
+        <LanguageProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Nav/>  
+            <Options/>
+            {children}
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   );
