@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Anek_Latin } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/template/Nav";
-import Options from "./components/template/Options";
+
 import { ThemeProvider } from "@/components/Theme";
 import { LanguageProvider } from "@/contexts/locale";
 
@@ -32,7 +32,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Nav/>  
-            <Options/>
+
             {children}
           </ThemeProvider>
         </LanguageProvider>

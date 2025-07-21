@@ -11,9 +11,9 @@ import { useTheme } from 'next-themes'
 
 const Options = () => {
   return (
-    <div  className='absolute top-8 right-10 flex gap-8 backdrop-blur-md px-5 py-3 rounded-2xl z-50'>
-            <LanguageSelection/>
-            <ThemeSelection/>
+    <div className='absolute top-0 right-6 flex gap-8 backdrop-blur-md px-5 py-3 rounded-2xl z-40'>
+        <LanguageSelection/>
+        <ThemeSelection/>
     </div>
   )
 }
