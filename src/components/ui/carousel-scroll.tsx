@@ -1,3 +1,5 @@
+import useEventListener from '@/hooks/useEventListener'
+import useWindowSize from '@/hooks/useWindowSize'
 import { cn } from '@/lib/utils'
 import React from 'react'
 
@@ -10,8 +12,46 @@ const CarouselScroll = ({
 }: CarouselProps) => {
     const [current, setCurrent] = React.useState(0)
     const [isBusy, setIsBusy] = React.useState(false)
-    
-   if(!children || !Array.isArray(children)) return 
+    const {height} = useWindowSize()
+
+    const isChildrenValid = React.Children.count(children) > 0 && Array.isArray(children)
+    if (!isChildrenValid) {
+        console.error("CarouselScroll requires an array of children components.");
+        return null;
+    }
+
+    console.log(current, isBusy)
+    useEventListener("wheel", (e) => {
+        if(isBusy) return
+        let alpha = -1
+        if (e.deltaY > 0) {
+            setCurrent(prev=> prev < children.length-1 ? prev+1 : children.length-1)
+            alpha = 1
+        } else if (e.deltaY < 0) {
+            setCurrent(prev=> prev > 0 ? prev-1 : 0)
+        }
+        handleScrollToSection(current + alpha)
+        handleBusyOnUserInteraction()
+    })
+
+
+    const handleBusyOnUserInteraction = () => {
+        setIsBusy(true)
+        setTimeout(() => {
+            setIsBusy(false)
+        }, 1000) // Simulate a delay for the transition
+    }
+
+    const handleScrollToSection = (index: number) => {
+        const targetY = height * (index); 
+        window.scrollTo({
+            top: targetY,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+
+
     return (
         <>
             {children}
@@ -20,11 +60,9 @@ const CarouselScroll = ({
                     return <div
                         onClick={()=>{
                             if(!isBusy && index !== current) {
-                                setIsBusy(true)
                                 setCurrent(index)
-                                setTimeout(() => {
-                                    setIsBusy(false)
-                                }, 2000) // Simulate a delay for the transition
+                                handleBusyOnUserInteraction()
+                                handleScrollToSection(index)
                             }
                         }}
                         className={cn(
