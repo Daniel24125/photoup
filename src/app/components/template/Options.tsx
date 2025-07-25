@@ -44,7 +44,7 @@ const ThemeSelection = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger>
         <Button variant="ghost" size="icon" className="cursor-pointer hove:text-foreground">
             <Sun size={27} className="text-white scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
             <Moon size={27} className="text-white absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />

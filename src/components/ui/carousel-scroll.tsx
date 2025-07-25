@@ -20,7 +20,7 @@ const CarouselScroll = ({
         return null;
     }
 
-    console.log(current, isBusy)
+
     useEventListener("wheel", (e) => {
         if(isBusy) return
         let alpha = -1
@@ -35,21 +35,21 @@ const CarouselScroll = ({
     })
 
 
-    const handleBusyOnUserInteraction = () => {
+    const handleBusyOnUserInteraction = React.useCallback(() => {
         setIsBusy(true)
         setTimeout(() => {
             setIsBusy(false)
         }, 1000) // Simulate a delay for the transition
-    }
+    }, []);
 
-    const handleScrollToSection = (index: number) => {
+    const handleScrollToSection = React.useCallback((index: number) => {
         const targetY = height * (index); 
         window.scrollTo({
             top: targetY,
             left: 0,
             behavior: 'smooth'
         });
-    }
+    }, [height]);
 
 
     return (

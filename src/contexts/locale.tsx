@@ -3,13 +3,13 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useMemo} from 'react';
 
 // Define the supported languages
-type Language = 'PT' | 'EN';
+export type LanguageType = 'PT' | 'EN';
 
 
 // Define the context value interface
 interface LanguageContextValue {
-  language: Language;
-  changeLanguage: (lang: Language) => void;
+  language: LanguageType;
+  changeLanguage: (lang: LanguageType) => void;
   isPortuguese: boolean;
   isEnglish: boolean;
 }
@@ -34,7 +34,7 @@ export const useLanguage = (): LanguageContextValue => {
 
 // Language Provider Component
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('PT');
+  const [language, setLanguage] = useState<LanguageType>('PT');
   // Simple language detection based on browser settings
   const detectLanguage = (): void => {
     try {
@@ -54,7 +54,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   };
 
  // Manual language change function - memoized to prevent unnecessary re-renders
-  const changeLanguage = useCallback((lang: Language): void => {
+  const changeLanguage = useCallback((lang: LanguageType): void => {
     setLanguage(lang);
     // Optionally store in localStorage for persistence
     try {
@@ -68,7 +68,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   useEffect(() => {
     try {
       // First check if user has a saved preference
-      const savedLang = localStorage.getItem('preferred-language') as Language;
+      const savedLang = localStorage.getItem('preferred-language') as LanguageType;
       if (savedLang && ['PT', 'EN'].includes(savedLang)) {
         setLanguage(savedLang);
       } else {

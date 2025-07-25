@@ -2,6 +2,8 @@
 import CarouselScroll from "@/components/ui/carousel-scroll";
 import Banner from "./components/Banner";
 import Footer from "./components/template/Footer";
+import React from "react"
+import { getData } from "@/actions/home";
 
 const sectionClassName = "w-full h-screen justify-center max-lg:p-0 p-5 relative"
 
@@ -26,6 +28,7 @@ const LandSection = () => {
 };
 
 const FeatureSection = ()=>{
+
   return <section className={sectionClassName}>
     FeatureSection
   </section>
