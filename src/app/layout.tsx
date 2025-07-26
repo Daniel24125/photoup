@@ -5,6 +5,7 @@ import Nav from "./components/template/Nav";
 
 import { ThemeProvider } from "@/components/Theme";
 import { LanguageProvider } from "@/contexts/locale";
+import { WebsiteSettingsProvider } from "@/contexts/website-settings";
 
 const geistSans = Anek_Latin({
   variable: "--font-anek-latin-sans",
@@ -24,18 +25,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} antialiased w-screen flex flex-col items-center`}>
-        <LanguageProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Nav/>  
+        <WebsiteSettingsProvider>
+          <LanguageProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Nav/>  
 
-            {children}
-          </ThemeProvider>
-        </LanguageProvider>
+              {children}
+            </ThemeProvider>
+          </LanguageProvider>
+        </WebsiteSettingsProvider>
       </body>
     </html>
   );

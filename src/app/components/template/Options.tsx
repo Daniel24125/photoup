@@ -8,6 +8,8 @@ import { Languages } from 'lucide-react'
 import React from 'react'
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from 'next-themes'
+import { useWebSettings } from '@/contexts/website-settings'
+import { cn } from '@/lib/utils'
 
 const Options = () => {
   return (
@@ -19,15 +21,16 @@ const Options = () => {
 }
 
 const LanguageSelection = ()=>{
-    const {language, changeLanguage} = useLanguage()
+  const {language, changeLanguage} = useLanguage()
+  const {navigationTextColor} = useWebSettings()
 
-    return <DropdownMenu>
+  return <DropdownMenu>
   <DropdownMenuTrigger className='cursor-pointer' onChange={(e)=>console.log(e)}>
     <Button variant="ghost" size="icon" className="cursor-pointer">
         <MUIBadge content={<span className='text-xs'>
             {language}
         </span>}>
-            <Languages className='text-white' size={27}/>
+            <Languages className={navigationTextColor} size={27}/>
         </MUIBadge>
     </Button>
     
@@ -41,13 +44,14 @@ const LanguageSelection = ()=>{
 
 const ThemeSelection = () => {
   const { setTheme, theme} = useTheme()
+  const {navigationTextColor} = useWebSettings()
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Button variant="ghost" size="icon" className="cursor-pointer hove:text-foreground">
-            <Sun size={27} className="text-white scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-            <Moon size={27} className="text-white absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+            <Sun size={27} className={cn("scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90", navigationTextColor)} />
+            <Moon size={27} className={cn("absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0", navigationTextColor)} />
             <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>

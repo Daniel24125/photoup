@@ -3,7 +3,7 @@
 import { LanguageType } from "@/contexts/locale";
 import base, { IFeaturesTableFields } from "@/utils/airtable";
 
-type TGetData = (tableName: string, languageInput: LanguageType) => Promise<IFeaturesTableFields[]>;
+export type TGetData = (tableName: string, languageInput: LanguageType) => Promise<IFeaturesTableFields[]>;
 
 export const  getData:TGetData = async (tableName: string, languageInput: LanguageType = "PT") => {
     try {

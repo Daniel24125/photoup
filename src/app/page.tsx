@@ -4,6 +4,9 @@ import Banner from "./components/Banner";
 import Footer from "./components/template/Footer";
 import React from "react"
 import { getData } from "@/actions/home";
+import { useDataFetch } from "@/hooks/useDataFetch";
+import { useWebSettings } from "@/contexts/website-settings";
+import useOnScreen from "@/hooks/useOnScreen";
 
 const sectionClassName = "w-full h-screen justify-center max-lg:p-0 p-5 relative"
 
@@ -28,6 +31,8 @@ const LandSection = () => {
 };
 
 const FeatureSection = ()=>{
+  const {data} = useDataFetch(getData, "Features")
+  
 
   return <section className={sectionClassName}>
     FeatureSection

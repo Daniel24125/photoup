@@ -1,3 +1,4 @@
+import { useWebSettings } from '@/contexts/website-settings'
 import useEventListener from '@/hooks/useEventListener'
 import useWindowSize from '@/hooks/useWindowSize'
 import { cn } from '@/lib/utils'
@@ -13,6 +14,7 @@ const CarouselScroll = ({
     const [current, setCurrent] = React.useState(0)
     const [isBusy, setIsBusy] = React.useState(false)
     const {height} = useWindowSize()
+    const {setNavigationTextColor} = useWebSettings()
 
     const isChildrenValid = React.Children.count(children) > 0 && Array.isArray(children)
     if (!isChildrenValid) {
@@ -32,6 +34,9 @@ const CarouselScroll = ({
         }
         handleScrollToSection(current + alpha)
         handleBusyOnUserInteraction()
+        if(current + alpha === 0) setNavigationTextColor("text-white")
+            else setNavigationTextColor("text-foreground")
+        
     })
 
 
