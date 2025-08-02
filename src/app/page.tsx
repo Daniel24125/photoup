@@ -53,7 +53,7 @@ const BenefitSection = ()=>{
     sectionClassName, 
     "flex items-center"
   )}>
-    <div className="flex justify-between w-full gap-10  pr-16">
+    <div className="flex justify-between w-full gap-10 pr-16">
       <div className="flex flex-col gap-5 w-1/2 h-full justify-evenly">
         <HeaderTitle title={language === "EN" ? "Benefits" : "Benefícios"} size={size}/>
         <p className="text-justify h-56">
