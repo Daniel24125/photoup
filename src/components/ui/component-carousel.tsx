@@ -11,7 +11,7 @@ const ComponentCarousel = ({
 }: CarouselProps) => {
     const [current, setCurrent] = React.useState(0)
     const [isBusy, setIsBusy] = React.useState(false)
-    const {height} = useWindowSize()
+    const {width, height, maxWidth} = useWindowSize()
     const scrollRef = React.useRef<HTMLDivElement>(null)
 
 
@@ -28,12 +28,29 @@ const ComponentCarousel = ({
         }, 1000) // Simulate a delay for the transition
     }, []);
     
+       const handleScrollToSection = React.useCallback((index: number) => {
+            const targetY = width * (index); 
+            // scrollRef.scrollTo({
+            //     top: targetY,
+            //     left: 0,
+            //     behavior: 'smooth'
+            // });
+            console.log(scrollRef)
+        }, [width]);
+    
+    
+
     return (
         <div className='w-full flex flex-col items-center '>
             <div style={{
-                height: height*0.8
-            }} ref={scrollRef} className='w-full overflow-hidden'>
-                {children}
+                height: height*0.8,
+                maxWidth
+            }} ref={scrollRef} className='w-full overflow-hidden flex'>
+                <div className='flex ' style={{
+                    width: width*children.length
+                }}>
+                    {children}
+                </div>
             </div>
             <div className='w-full justify-center flex items-center gap-3 m-2'>
                 {children.map((el, index) =>{
@@ -43,6 +60,7 @@ const ComponentCarousel = ({
                             if(!isBusy && index !== current) {
                                 setCurrent(index)
                                 handleBusyOnUserInteraction()
+                                handleScrollToSection(index)
                             }
                         }}
                         className={cn(

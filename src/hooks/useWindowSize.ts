@@ -6,14 +6,19 @@ export default function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
     width: 0,
     height: 0,
-  })
+    maxWidth: 1480
+   })
 
   useEventListener("resize", () => {
-    setWindowSize({ width: window.innerWidth, height: window.innerHeight })
+    setWindowSize(prev=>{
+      return {...prev, width: window.innerWidth, height: window.innerHeight}
+    })
   })
 
   useEffect(() => {
-    setWindowSize({ width: window.innerWidth, height: window.innerHeight }) 
+    setWindowSize(prev=>{
+      return {...prev, width: window.innerWidth, height: window.innerHeight}
+    }) 
   }, [])
  
 

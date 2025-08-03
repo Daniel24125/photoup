@@ -12,10 +12,10 @@ import Image from "next/image";
 import useWindowSize from "@/hooks/useWindowSize";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import ComponentCarousel from "@/components/ui/component-carousel";
+import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
-const sectionStyle = {
-  maxWidth: 1480
-}
+
 const sectionClassName = `w-full h-screen flex justify-center items-center max-lg:p-0 p-5 relative`
 
 export default function Home() { 
@@ -30,8 +30,9 @@ export default function Home() {
 }
 
 const LandSection = () => {
+  const {maxWidth} = useWindowSize()
   return (
-    <section style={sectionStyle}  className={sectionClassName}>
+    <section style={{maxWidth}}  className={sectionClassName}>
       <Banner/>
     </section>
  
@@ -39,10 +40,11 @@ const LandSection = () => {
 };
 
 const FeatureSection = ()=>{
+  const {maxWidth} = useWindowSize()
   const {data} = useDataFetch(getData, "Features")
   
 
-  return <section style={sectionStyle}  className={sectionClassName}>
+  return <section style={{maxWidth}}  className={sectionClassName}>
     FeatureSection
   </section>
 }
@@ -50,9 +52,9 @@ const FeatureSection = ()=>{
 const BenefitSection = ()=>{
   const {language} = useLanguage()
   const size = React.useMemo(()=>10, [])
-  const {width} = useWindowSize()
+  const {width, maxWidth} = useWindowSize()
 
-  return <section style={sectionStyle}  className={cn(
+  return <section style={{maxWidth}}  className={cn(
     sectionClassName, 
     "flex items-center"
   )}>
@@ -70,11 +72,12 @@ const BenefitSection = ()=>{
 }
 
 const SustainabilitySection = ()=>{
+  const {maxWidth} = useWindowSize()
   const {data} = useDataFetch(getData, "Sustainable Goals")
 
 
   if(!data || data.length === 0) return null;
-  return <section style={sectionStyle} className={sectionClassName}>
+  return <section style={{maxWidth}} className={sectionClassName}>
     <AnimatedTestimonials autoplay testimonials={data.map(s=>{
       return {
         quote: s.desc, 
@@ -87,25 +90,45 @@ const SustainabilitySection = ()=>{
 }
 
 const AwardSection = ()=>{
-  const {data} = useDataFetch(getData, "Awards")
+  const {maxWidth} = useWindowSize()
   const {language} = useLanguage()
+  const {data} = useDataFetch(getData, "Awards")
   console.log(data)
+
   if(!data || data.length === 0) return null;
-  return <section style={sectionStyle} className={sectionClassName}>
+  return <section style={{maxWidth}} className={sectionClassName}>
     <ComponentCarousel>
       {data.map((award, index) => {
         return (
-          <div key={index} className="flex flex-col gap-5 w-full h-full justify-center">
+          <div key={index} className="flex flex-col gap-20 w-full h-full justify-center pr-20">
             <HeaderTitle title={language === "EN" ? "Contests" : "Participações"} size={10}/>
-            <div className="flex justify-between">
-              <div>
-
+            <div className="flex justify-between gap-5">
+              <div className="flex flex-col gap-5">
+                <div className="flex w-full justify-between items-center">
+                  <div className="flex gap-5">
+                    <Image className="flex-shrink-0" src={award.icon![0].url} width={35} height={0} alt={award.title}/>
+                    <div className="flex flex-col">
+                      <h3 className="text-2xl font-bold">{award.title}</h3>
+                      <span className="text-muted-foreground">{award.date}</span>
+                    </div>
+                  </div>
+                  <Badge>{award.place}</Badge>
+                </div>
+                <p className="text-center">{award.desc}</p>
+                <div className="w-full text-end">
+                  <Link className="underline" href={award.link as string}>{language === "EN" ? "More information": "Saber mais"}</Link>
+                </div>
               </div>
-              {/* @ts-ignore */}
-              <Image src={award.picture![0].url} width={400} height={400} alt={award.title}/>
+              <div className="rounded-2xl flex-shrink-0" style={{
+                //@ts-ignore
+                backgroundImage: `url("${award.picture![0].url}")`,
+                width: 400, 
+                height: 400,
+                backgroundSize: "cover",
+                backgroundPosition: "center"
+              }}></div>
             </div>
-            <h3 className="text-2xl font-bold">{award.title}</h3>
-            <p className="text-center">{award.desc}</p>
+            
           </div>
         )
       })}

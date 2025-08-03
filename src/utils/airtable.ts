@@ -32,7 +32,7 @@ export interface IFeaturesTableFields extends FieldSet {
     title: string
     language: LanguageType
     desc: string
-    icon?: string
+    icon?: AirtablePictureType[]
     date?: string
     link?: string
     place?:string
