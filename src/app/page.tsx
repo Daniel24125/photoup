@@ -14,6 +14,7 @@ import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import ComponentCarousel from "@/components/ui/component-carousel";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 
 const sectionClassName = `w-full h-screen flex justify-center items-center max-lg:p-0 p-5 relative`
@@ -90,48 +91,45 @@ const SustainabilitySection = ()=>{
 }
 
 const AwardSection = ()=>{
-  const {maxWidth} = useWindowSize()
+  const {maxWidth, width} = useWindowSize()
   const {language} = useLanguage()
   const {data} = useDataFetch(getData, "Awards")
-  console.log(data)
 
   if(!data || data.length === 0) return null;
   return <section style={{maxWidth}} className={sectionClassName}>
     <ComponentCarousel>
       {data.map((award, index) => {
-        return (
-          <div key={index} className="flex flex-col gap-20 w-full h-full justify-center pr-20">
-            <HeaderTitle title={language === "EN" ? "Contests" : "Participações"} size={10}/>
-            <div className="flex justify-between gap-5">
-              <div className="flex flex-col gap-5">
-                <div className="flex w-full justify-between items-center">
-                  <div className="flex gap-5">
-                    <Image className="flex-shrink-0" src={award.icon![0].url} width={35} height={0} alt={award.title}/>
-                    <div className="flex flex-col">
-                      <h3 className="text-2xl font-bold">{award.title}</h3>
-                      <span className="text-muted-foreground">{award.date}</span>
-                    </div>
+        return  <CarouselItem  key={index} className="flex flex-col gap-20 h-full justify-center pr-20">
+          <HeaderTitle title={language === "EN" ? "Contests" : "Participações"} size={10}/>
+          <div className="flex justify-between gap-10">
+            <div className="flex flex-col gap-5">
+              <div className="flex w-full justify-between items-center">
+                <div className="flex gap-5">
+                  <Image className="flex-shrink-0" src={award.icon![0].url} width={35} height={0} alt={award.title}/>
+                  <div className="flex flex-col">
+                    <h3 className="text-2xl font-bold">{award.title}</h3>
+                    <span className="text-muted-foreground">{award.date}</span>
                   </div>
-                  <Badge>{award.place}</Badge>
                 </div>
-                <p className="text-center">{award.desc}</p>
-                <div className="w-full text-end">
-                  <Link className="underline" href={award.link as string}>{language === "EN" ? "More information": "Saber mais"}</Link>
-                </div>
+                <Badge>{award.place}</Badge>
               </div>
-              <div className="rounded-2xl flex-shrink-0" style={{
-                //@ts-ignore
-                backgroundImage: `url("${award.picture![0].url}")`,
-                width: 400, 
-                height: 400,
-                backgroundSize: "cover",
-                backgroundPosition: "center"
-              }}></div>
+              <p className="text-justify">{award.desc}</p>
+              <div className="w-full text-end">
+                <Link target="__blank" className="underline" href={award.link as string}>{language === "EN" ? "More information": "Saber mais"}</Link>
+              </div>
             </div>
-            
+            <div className="rounded-4xl flex-shrink-0" style={{
+              //@ts-ignore
+              backgroundImage: `url("${award.picture![0].url}")`,
+              width: 400, 
+              height: 400,
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }}></div>
           </div>
-        )
-      })}
+        </CarouselItem>}
+      )}
     </ComponentCarousel>
+
   </section>
 }
