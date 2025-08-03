@@ -1,12 +1,43 @@
 import { LanguageType } from '@/contexts/locale';
 import Airtable, { FieldSet } from 'airtable';
 
+export type AirtablePictureType = {
+    id: string,
+    width: number,
+    height: number,
+    url: string,
+    filename: string,
+    size: number,
+    type: string,
+    thumbnails: {
+        small: {
+            url: string,
+            width: number,
+            height: number
+        },
+        large: {
+            url: string,
+            width: number,
+            height: number
+        },
+        full: {
+            url: string,
+            width: number,
+            height: number
+        }
+    }
+}
+
 export interface IFeaturesTableFields extends FieldSet {
-    title: string;
-    language: LanguageType;
-    desc: string; 
-    icon: string;
-    'Created Time'?: string; // Airtable's default 'Created Time' field
+    title: string
+    language: LanguageType
+    desc: string
+    icon?: string
+    date?: string
+    link?: string
+    place?:string
+    picture?: string |  AirtablePictureType[]
+    'Created Time'?: string
 }
 
 

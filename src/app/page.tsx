@@ -10,10 +10,13 @@ import HeaderTitle, { HeaderTitleDevisor } from "./components/HeaderTitle";
 import { useLanguage } from "@/contexts/locale";
 import Image from "next/image";
 import useWindowSize from "@/hooks/useWindowSize";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import ComponentCarousel from "@/components/ui/component-carousel";
 
-const maxWidth = 1480
-
-const sectionClassName = `w-full max-w-[${maxWidth}px] h-screen justify-center max-lg:p-0 p-5 relative`
+const sectionStyle = {
+  maxWidth: 1480
+}
+const sectionClassName = `w-full h-screen flex justify-center items-center max-lg:p-0 p-5 relative`
 
 export default function Home() { 
   return <CarouselScroll>
@@ -28,7 +31,7 @@ export default function Home() {
 
 const LandSection = () => {
   return (
-    <section className={sectionClassName}>
+    <section style={sectionStyle}  className={sectionClassName}>
       <Banner/>
     </section>
  
@@ -39,7 +42,7 @@ const FeatureSection = ()=>{
   const {data} = useDataFetch(getData, "Features")
   
 
-  return <section className={sectionClassName}>
+  return <section style={sectionStyle}  className={sectionClassName}>
     FeatureSection
   </section>
 }
@@ -49,7 +52,7 @@ const BenefitSection = ()=>{
   const size = React.useMemo(()=>10, [])
   const {width} = useWindowSize()
 
-  return <section className={cn(
+  return <section style={sectionStyle}  className={cn(
     sectionClassName, 
     "flex items-center"
   )}>
@@ -61,19 +64,51 @@ const BenefitSection = ()=>{
         </p>
         <HeaderTitleDevisor size={size}/>
       </div>
-      <Image src="/benefits.png" width={width > maxWidth ? maxWidth/2: width/2} height={0} alt="Imagem Benefícios"/>
+      <Image src="/benefits.png" width={width/2 > 500 ? 500 : width/ 2} height={0} alt="Imagem Benefícios"/>
     </div>
   </section>
 }
 
 const SustainabilitySection = ()=>{
-  return <section className={sectionClassName}>
-    SustainabilitySection
+  const {data} = useDataFetch(getData, "Sustainable Goals")
+
+
+  if(!data || data.length === 0) return null;
+  return <section style={sectionStyle} className={sectionClassName}>
+    <AnimatedTestimonials autoplay testimonials={data.map(s=>{
+      return {
+        quote: s.desc, 
+        name: s.title, 
+        designation: "", 
+        src: s.picture as string
+      }
+    })} />
   </section>
 }
 
 const AwardSection = ()=>{
-  return <section className={sectionClassName}>
-    AwardSection
+  const {data} = useDataFetch(getData, "Awards")
+  const {language} = useLanguage()
+  console.log(data)
+  if(!data || data.length === 0) return null;
+  return <section style={sectionStyle} className={sectionClassName}>
+    <ComponentCarousel>
+      {data.map((award, index) => {
+        return (
+          <div key={index} className="flex flex-col gap-5 w-full h-full justify-center">
+            <HeaderTitle title={language === "EN" ? "Contests" : "Participações"} size={10}/>
+            <div className="flex justify-between">
+              <div>
+
+              </div>
+              {/* @ts-ignore */}
+              <Image src={award.picture![0].url} width={400} height={400} alt={award.title}/>
+            </div>
+            <h3 className="text-2xl font-bold">{award.title}</h3>
+            <p className="text-center">{award.desc}</p>
+          </div>
+        )
+      })}
+    </ComponentCarousel>
   </section>
 }
