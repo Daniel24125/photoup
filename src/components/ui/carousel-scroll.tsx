@@ -60,7 +60,7 @@ const CarouselScroll = ({
     return (
         <>
             {children}
-            <div className='flex flex-col gap-3 m-2 fixed right-10 top-1/2 -translate-y-1/2'>
+            <div className='flex flex-col gap-3 m-2 fixed right-10 top-1/2 -translate-y-1/2 z-20'>
                 {children.map((el, index) =>{
                     return <div
                         onClick={()=>{

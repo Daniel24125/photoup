@@ -1,7 +1,6 @@
 "use client"
 import CarouselScroll from "@/components/ui/carousel-scroll";
 import Banner from "./components/Banner";
-import Footer from "./components/template/Footer";
 import React from "react"
 import { getData } from "@/actions/home";
 import { useDataFetch } from "@/hooks/useDataFetch";
@@ -14,7 +13,7 @@ import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import ComponentCarousel from "@/components/ui/component-carousel";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {  CarouselItem } from "@/components/ui/carousel";
 
 
 const sectionClassName = `w-full h-screen flex justify-center items-center max-lg:p-0 p-5 relative`
@@ -26,7 +25,7 @@ export default function Home() {
     <BenefitSection/>
     <SustainabilitySection/>
     <AwardSection/>
-    <Footer/>
+
   </CarouselScroll>
 }
 
@@ -42,7 +41,7 @@ const LandSection = () => {
 
 const FeatureSection = ()=>{
   const {maxWidth} = useWindowSize()
-  const {data} = useDataFetch(getData, "Features")
+  const {data, loading} = useDataFetch(getData, "Features")
   
 
   return <section style={{maxWidth}}  className={sectionClassName}>
@@ -74,8 +73,9 @@ const BenefitSection = ()=>{
 
 const SustainabilitySection = ()=>{
   const {maxWidth} = useWindowSize()
-  const {data} = useDataFetch(getData, "Sustainable Goals")
+  const {data, loading} = useDataFetch(getData, "Sustainable Goals")
 
+  if(loading) return "Loading..."
 
   if(!data || data.length === 0) return null;
   return <section style={{maxWidth}} className={sectionClassName}>
@@ -96,24 +96,30 @@ const AwardSection = ()=>{
   const {data} = useDataFetch(getData, "Awards")
 
   if(!data || data.length === 0) return null;
-  return <section style={{maxWidth}} className={sectionClassName}>
+  return <section style={{maxWidth}} className={cn(
+    sectionClassName, 
+    "flex flex-col items-start gap-10 max-lg:p-5 max-lg:h-auto "
+  )}>
+     <HeaderTitle title={language === "EN" ? "Contests" : "Participações"} size={10}/>
+
     <ComponentCarousel>
       {data.map((award, index) => {
         return  <CarouselItem  key={index} className="flex flex-col gap-20 h-full justify-center pr-20">
-          <HeaderTitle title={language === "EN" ? "Contests" : "Participações"} size={10}/>
           <div className="flex justify-between gap-10">
-            <div className="flex flex-col gap-5">
-              <div className="flex w-full justify-between items-center">
-                <div className="flex gap-5">
-                  <Image className="flex-shrink-0" src={award.icon![0].url} width={35} height={0} alt={award.title}/>
-                  <div className="flex flex-col">
-                    <h3 className="text-2xl font-bold">{award.title}</h3>
-                    <span className="text-muted-foreground">{award.date}</span>
+            <div className="flex flex-col gap-5 justify-between pb-5">
+              <div className="flex flex-col gap-5">
+                <div className="flex w-full justify-between items-center">
+                  <div className="flex gap-5">
+                    <Image className="flex-shrink-0" src={award.icon![0].url} width={50} height={0} alt={award.title}/>
+                    <div className="flex flex-col">
+                      <h3 className="text-2xl font-bold">{award.title}</h3>
+                      <span className="text-muted-foreground">{award.date}</span>
+                    </div>
                   </div>
+                  <Badge>{award.place}</Badge>
                 </div>
-                <Badge>{award.place}</Badge>
+                <p className="text-justify">{award.desc}</p>
               </div>
-              <p className="text-justify">{award.desc}</p>
               <div className="w-full text-end">
                 <Link target="__blank" className="underline" href={award.link as string}>{language === "EN" ? "More information": "Saber mais"}</Link>
               </div>

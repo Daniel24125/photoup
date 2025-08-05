@@ -36,6 +36,11 @@ export interface IFeaturesTableFields extends FieldSet {
     date?: string
     link?: string
     place?:string
+    address?: string
+    addressCode?: string
+    city?: string
+    email?: string
+    phone?: string
     picture?: string |  AirtablePictureType[]
     'Created Time'?: string
 }
