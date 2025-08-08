@@ -16,6 +16,8 @@ import Link from "next/link";
 import {  CarouselItem } from "@/components/ui/carousel";
 import useOnScreen from "@/hooks/useOnScreen";
 import { useWebSettings } from "@/contexts/website-settings";
+import FeatureComponent, { TFeature } from "./components/FeatureComponent";
+import { IFeaturesTableFields } from "@/utils/airtable";
 
 
 const sectionClassName = `w-full h-screen flex justify-center items-center max-lg:p-0 p-5 relative`
@@ -53,12 +55,22 @@ const LandSection = () => {
 const FeatureSection = ()=>{
   const {maxWidth} = useWindowSize()
   const {data, loading} = useDataFetch(getData, "Features")
-  
-  console.log(data)
+  if(loading) return "Loading..."
+
+  if(!data || data.length === 0) return null;
   return <section style={{maxWidth}}  className={sectionClassName}>
-    FeatureSection
+    <div className="w-full flex flex-wrap justify-evenly px-5">
+      {data.map((f)=>{
+        return <FeatureComponent
+          feature={f as unknown as TFeature}
+          size="md"
+        />
+      })}
+    </div>
   </section>
 }
+
+
 
 const BenefitSection = ()=>{
   const {language} = useLanguage()
