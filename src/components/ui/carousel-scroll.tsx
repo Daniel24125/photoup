@@ -27,7 +27,7 @@ const CarouselScroll = ({
         if(isBusy) return
         let alpha = -1
         if (e.deltaY > 0) {
-            setCurrent(prev=> prev < children.length-1 ? prev+1 : children.length-1)
+            setCurrent(prev=> prev < children.length ? prev+1 : children.length)
             alpha = 1
         } else if (e.deltaY < 0) {
             setCurrent(prev=> prev > 0 ? prev-1 : 0)

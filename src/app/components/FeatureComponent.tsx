@@ -25,7 +25,7 @@ const sizeConversion = {
 const FeatureComponent = ({feature, size="md"} : TFeatureComponentProps) => {
   return (
     <div className='flex gap-5 w-sm mb-10 '>
-      <div className={cn(sizeConversion[size], "flex-shrink-0 bg-teal-100 flex justify-center items-center rounded-xl")}>
+      <div className={cn(sizeConversion[size], "flex-shrink-0 bg-teal-400 flex justify-center items-center rounded-xl")}>
         <img src={`data:image/svg+xml;utf8,${encodeURIComponent(feature.icon)}`} />
       </div>
       <div className='flex flex-col mt-2'>

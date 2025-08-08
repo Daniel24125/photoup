@@ -51,5 +51,5 @@ Airtable.configure({
 });
 
 var base = Airtable.base(process.env.BASE_ID as string);
-console.log(base)
+
 export default base
