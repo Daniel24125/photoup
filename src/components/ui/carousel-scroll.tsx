@@ -14,13 +14,13 @@ const CarouselScroll = ({
     const [current, setCurrent] = React.useState(0)
     const [isBusy, setIsBusy] = React.useState(false)
     const {height} = useWindowSize()
-    const {setNavigationTextColor} = useWebSettings()
 
     const isChildrenValid = React.Children.count(children) > 0 && Array.isArray(children)
     if (!isChildrenValid) {
         console.error("CarouselScroll requires an array of children components.");
         return null;
     }
+
 
 
     useEventListener("wheel", (e) => {
@@ -34,8 +34,7 @@ const CarouselScroll = ({
         }
         handleScrollToSection(current + alpha)
         handleBusyOnUserInteraction()
-        if(current + alpha === 0) setNavigationTextColor("text-white")
-            else setNavigationTextColor("text-foreground")
+       
         
     })
 

@@ -2,7 +2,6 @@
 
 import { getData } from '@/actions/home';
 import { LogoBlack } from '@/components/Logos';
-import { BannerMask } from '@/components/Masks'
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/locale';
 import { useDataFetch } from '@/hooks/useDataFetch';
@@ -11,6 +10,8 @@ import { cn } from '@/lib/utils';
 import { Mail } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
+
+const footerColor= "bg-teal-200"
 
 const Footer = () => {
   const { maxWidth} = useWindowSize();
@@ -24,7 +25,7 @@ const Footer = () => {
   const addressData = data[0]
 
   return (    
-    <footer className='w-full flex justify-center bg-teal-500 p-10 z-0'>
+    <footer className={cn('w-full flex justify-center p-10 z-0', footerColor)}>
       <div style={{maxWidth}} className='w-full flex-col'>
         <LogoBlack width={140}/>
         <div className='mt-16 flex justify-between'>
@@ -77,20 +78,21 @@ const Footer = () => {
               title: language === "EN" ? "SERVICES": "SERVIÇOS",
               link: "/servicos"
             }}
-            navItems={[
-              {
-                title: language === "EN" ? "Biogas Upgrade": "Upgrade de Biogás",
-                link: "/servicos?scrollTo=biogasUpgrade"
-              },
-              {
-                title: language === "EN" ? "Potential Assessment": "Avaliação de Potencial",
-                link: "/servicos?scrollTo=assessment"
-              },
-              {
-                title: language === "EN" ? "Monitoring System": "Sistemas de Monitorização",
-                link: "/servicos?scrollTo=monitoring"
-              }
-            ]}
+            navItems={[]}
+            // navItems={[
+            //   {
+            //     title: language === "EN" ? "Biogas Upgrade": "Upgrade de Biogás",
+            //     link: "/servicos?scrollTo=biogasUpgrade"
+            //   },
+            //   {
+            //     title: language === "EN" ? "Potential Assessment": "Avaliação de Potencial",
+            //     link: "/servicos?scrollTo=assessment"
+            //   },
+            //   {
+            //     title: language === "EN" ? "Monitoring System": "Sistemas de Monitorização",
+            //     link: "/servicos?scrollTo=monitoring"
+            //   }
+            // ]}
           />
           <FooterNavComponent
             sectionTitle={{
@@ -123,7 +125,7 @@ const Footer = () => {
           <span className='text-xs'>© Photoup {new Date().getFullYear()}, all rights reserved</span>
           <div className='flex gap-2'>
             <Link href={`mailto:${addressData.email!}`}>
-              <Button  variant={"outline"} size={"icon"} className='bg-teal-500 border-black cursor-pointer'>
+              <Button  variant={"outline"} size={"icon"} className={cn('border-black cursor-pointer', footerColor)}>
                 <Mail/>
               </Button>
             </Link>

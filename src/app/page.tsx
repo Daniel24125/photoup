@@ -14,6 +14,8 @@ import ComponentCarousel from "@/components/ui/component-carousel";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import {  CarouselItem } from "@/components/ui/carousel";
+import useOnScreen from "@/hooks/useOnScreen";
+import { useWebSettings } from "@/contexts/website-settings";
 
 
 const sectionClassName = `w-full h-screen flex justify-center items-center max-lg:p-0 p-5 relative`
@@ -31,8 +33,17 @@ export default function Home() {
 
 const LandSection = () => {
   const {maxWidth} = useWindowSize()
+  const sectionRef = React.useRef<HTMLDivElement>(null)
+  const isVisible =useOnScreen(sectionRef, "-10px")
+  const {setNavigationTextColor} = useWebSettings()
+
+  React.useEffect(()=>{
+    if(isVisible) setNavigationTextColor("text-white")
+        else setNavigationTextColor("text-foreground")
+  },[isVisible])
+
   return (
-    <section style={{maxWidth}}  className={sectionClassName}>
+    <section ref={sectionRef} style={{maxWidth}}  className={sectionClassName}>
       <Banner/>
     </section>
  
@@ -43,7 +54,7 @@ const FeatureSection = ()=>{
   const {maxWidth} = useWindowSize()
   const {data, loading} = useDataFetch(getData, "Features")
   
-
+  console.log(data)
   return <section style={{maxWidth}}  className={sectionClassName}>
     FeatureSection
   </section>
