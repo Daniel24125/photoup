@@ -36,7 +36,6 @@ export default function RootLayout({
             >
               <Nav/>  
               {children}
-              <Footer/>
             </ThemeProvider>
           </LanguageProvider>
         </WebsiteSettingsProvider>

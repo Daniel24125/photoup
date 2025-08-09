@@ -14,10 +14,9 @@ import ComponentCarousel from "@/components/ui/component-carousel";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import {  CarouselItem } from "@/components/ui/carousel";
-import useOnScreen from "@/hooks/useOnScreen";
-import { useWebSettings } from "@/contexts/website-settings";
 import FeatureComponent, { TFeature } from "./components/FeatureComponent";
 import NavWhiteHeader from "@/components/NavWhiteHeader";
+import Footer from "./components/template/Footer";
 
 
 const sectionClassName = `w-full h-screen flex justify-center items-center max-lg:p-0 p-5 relative`
@@ -29,7 +28,7 @@ export default function Home() {
     <BenefitSection/>
     <SustainabilitySection/>
     <AwardSection/>
-
+    <Footer/>
   </CarouselScroll>
 }
 
