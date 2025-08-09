@@ -2,12 +2,15 @@
 
 import React, { createContext, useContext, useState, useCallback, useMemo} from 'react';
 
-type TNavigationTextColor = "text-white" | "text-foreground"
+type TsettingsTextColor = "text-white" | "text-foreground"
 
 // Define the context value interface
 interface WebsiteSettingsContextValueValue {
-  navigationTextColor: TNavigationTextColor;
-  setNavigationTextColor: (navigationTextColor: TNavigationTextColor) => void;
+  settingsTextColor: TsettingsTextColor;
+  setSettingsTextColor: (settingsTextColor: TsettingsTextColor) => void;
+  navigationTextColor: TsettingsTextColor;
+  setNavigationTextColor: (settingsTextColor: TsettingsTextColor) => void;
+ 
 }
 
 // Define the provider props interface
@@ -31,13 +34,16 @@ export const useWebSettings = (): WebsiteSettingsContextValueValue => {
 
 
 export const WebsiteSettingsProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-    const [navigationTextColor, setNavigationTextColor] = useState<TNavigationTextColor>('text-white');
+    const [settingsTextColor, setSettingsTextColor] = useState<TsettingsTextColor>('text-white');
+    const [navigationTextColor, setNavigationTextColor] = useState<TsettingsTextColor>('text-white');
 
 
     const value: WebsiteSettingsContextValueValue = useMemo(() => ({
+        settingsTextColor,
+        setSettingsTextColor,
         navigationTextColor,
         setNavigationTextColor
-    }), [navigationTextColor, setNavigationTextColor]);
+    }), [settingsTextColor, setSettingsTextColor]);
 
     return (
         <WebsiteSettingsContext.Provider value={value}>

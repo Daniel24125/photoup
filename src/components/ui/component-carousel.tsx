@@ -13,7 +13,6 @@ const ComponentCarousel = ({
     const [api, setApi] = React.useState<CarouselApi>()
     const [count, setCount] = React.useState(0)
 
-    console.log(current)
     const isChildrenValid = React.Children.count(children) > 0 && Array.isArray(children)
     if (!isChildrenValid) {
         console.error("CarouselScroll requires an array of children components.");

@@ -22,7 +22,7 @@ const Options = () => {
 
 const LanguageSelection = ()=>{
   const {language, changeLanguage} = useLanguage()
-  const {navigationTextColor} = useWebSettings()
+  const {settingsTextColor} = useWebSettings()
 
   return <DropdownMenu>
   <DropdownMenuTrigger className='cursor-pointer' onChange={(e)=>console.log(e)}>
@@ -30,7 +30,7 @@ const LanguageSelection = ()=>{
         <MUIBadge content={<span className='text-xs'>
             {language}
         </span>}>
-            <Languages className={navigationTextColor} size={27}/>
+            <Languages className={settingsTextColor} size={27}/>
         </MUIBadge>
     </Button>
     
@@ -44,14 +44,14 @@ const LanguageSelection = ()=>{
 
 const ThemeSelection = () => {
   const { setTheme, theme} = useTheme()
-  const {navigationTextColor} = useWebSettings()
+  const {settingsTextColor} = useWebSettings()
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Button variant="ghost" size="icon" className="cursor-pointer hove:text-foreground">
-            <Sun size={27} className={cn("scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90", navigationTextColor)} />
-            <Moon size={27} className={cn("absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0", navigationTextColor)} />
+            <Sun size={27} className={cn("scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90", settingsTextColor)} />
+            <Moon size={27} className={cn("absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0", settingsTextColor)} />
             <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>

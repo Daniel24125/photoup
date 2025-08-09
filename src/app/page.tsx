@@ -17,7 +17,7 @@ import {  CarouselItem } from "@/components/ui/carousel";
 import useOnScreen from "@/hooks/useOnScreen";
 import { useWebSettings } from "@/contexts/website-settings";
 import FeatureComponent, { TFeature } from "./components/FeatureComponent";
-import { IFeaturesTableFields } from "@/utils/airtable";
+import NavWhiteHeader from "@/components/NavWhiteHeader";
 
 
 const sectionClassName = `w-full h-screen flex justify-center items-center max-lg:p-0 p-5 relative`
@@ -35,19 +35,11 @@ export default function Home() {
 
 const LandSection = () => {
   const {maxWidth} = useWindowSize()
-  const sectionRef = React.useRef<HTMLDivElement>(null)
-  const isVisible =useOnScreen(sectionRef, "-10px")
-  const {setNavigationTextColor} = useWebSettings()
-
-  React.useEffect(()=>{
-    if(isVisible) setNavigationTextColor("text-white")
-        else setNavigationTextColor("text-foreground")
-  },[isVisible])
 
   return (
-    <section ref={sectionRef} style={{maxWidth}}  className={sectionClassName}>
+    <NavWhiteHeader  style={{maxWidth}}  className={sectionClassName}>
       <Banner/>
-    </section>
+    </NavWhiteHeader>
  
   );
 };
