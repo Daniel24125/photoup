@@ -30,7 +30,7 @@ const CircularGallery = ({
     },[angleRadians, radius])
 
 
-    console.log(angleDegrees,angleRadians, tranlationX, tranlationY)
+
     return (
         <div className='flex gap-10 justify-center relative'>
             <div style={{

@@ -42,7 +42,7 @@ export interface IFeaturesTableFields extends FieldSet {
     city?: string
     email?: string
     phone?: string
-    picture?: string |  AirtablePictureType[]
+    picture?: AirtablePictureType[]
     'Created Time'?: string
 }
 

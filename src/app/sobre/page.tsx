@@ -76,7 +76,7 @@ const TeamComponent = ()=>{
   if(!data || data.length === 0) return null;
 
   console.log(data)
-  return <section style={{maxWidth}} className="w-full flex flex-col gap-20 p-10">
+  return <section style={{maxWidth}} className="w-full flex flex-col gap-20 px-10 py-28">
     <HeaderTitle title={language === "EN" ? "The Team" : "A Equipa"} size={10}/>
     <div className='flex justify-evenly gap-14 flex-wrap'>
       {data.map(member => (

@@ -25,7 +25,7 @@ const Footer = () => {
   const addressData = data[0]
 
   return (    
-    <footer className={cn('w-full flex justify-center p-10 z-0', footerColor)}>
+    <footer className={cn('w-full flex justify-center p-10 z-0 mt-52', footerColor)}>
       <div style={{maxWidth}} className='w-full flex-col'>
         <LogoBlack width={140}/>
         <div className='mt-16 flex justify-between'>
@@ -121,7 +121,7 @@ const Footer = () => {
             ]}
           />
         </div>
-        <div className='flex justify-between mt-16'>
+        <div className='flex justify-between mt-16 items-end'>
           <span className='text-xs'>© Photoup {new Date().getFullYear()}, all rights reserved</span>
           <div className='flex gap-2'>
             <Link href={`mailto:${addressData.email!}`}>
