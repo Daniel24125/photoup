@@ -29,6 +29,7 @@ export type AirtablePictureType = {
 }
 
 export interface IFeaturesTableFields extends FieldSet {
+    id: string,
     title: string
     language: LanguageType
     desc: string
