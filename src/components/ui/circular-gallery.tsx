@@ -3,32 +3,45 @@ import React from 'react'
 
 type CircularGalleryProps = {
     children: React.ReactNode,
-    rotationAngle: number,
-    rotationRadius: number
+    radius: number,
+    componentDistance: number
 }
 
 const CircularGallery = ({
     children,
-    rotationAngle=15,
-    rotationRadius=100
+    radius=100,
+    componentDistance=50,
 }: CircularGalleryProps) => {
 
     const angleRadians = React.useMemo(()=>{
-        return rotationAngle*180/3.14
-    }, [])
+        return componentDistance/radius
+    }, [radius, componentDistance])
 
+    const angleDegrees = React.useMemo(()=>{
+        return angleRadians*180/Math.PI
+    }, [angleRadians])
+    
+    const tranlationX = React.useMemo(()=>{
+        return radius*Math.sin(angleRadians)
+    },[angleRadians, radius])
+
+    const tranlationY = React.useMemo(()=>{
+        return radius*(1-Math.cos(angleRadians))
+    },[angleRadians, radius])
+
+
+    console.log(angleDegrees,angleRadians, tranlationX, tranlationY)
     return (
-        <div className='flex gap-10 justify-center'>
+        <div className='flex gap-10 justify-center relative'>
             <div style={{
-                transformOrigin: "center center",
-                transform: `rotate(${(180-rotationAngle)/2}deg) `
-            }} className='w-xs h-80 bg-red-400'></div>
+                transform: `rotate(-${angleDegrees}deg) translate(-${tranlationX}px, ${tranlationY}px)`
+            }} className='w-xs h-96 bg-red-400 absolute top-0'></div>
             <div style={{
-
-            }} className='w-xs h-80 bg-red-400'></div>
+                
+            }} className='w-xs h-96 bg-red-400 absolute top-0'></div>
             <div style={{
-                transform: `rotate(-${(180-rotationAngle)/2}deg) translate(${rotationRadius*Math.sin(angleRadians)}px, ${rotationRadius*(1-Math.cos(angleRadians))}px)`
-            }} className='w-xs h-80 bg-red-400'></div>
+                transform: `rotate(${angleDegrees}deg) translate(${tranlationX}px, ${tranlationY}px)`
+            }} className='w-xs h-96 bg-red-400 absolute top-0'></div>
         {/* {children} */}
         </div>
     )

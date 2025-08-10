@@ -10,8 +10,8 @@ import Footer from '../components/template/Footer'
 
 const AboutPage = () => {
   return (
-    <div className='h-screen w-full overflow-y-auto overflow-x-hidden'>
-      <div>
+    <div className='h-screen w-full overflow-y-auto overflow-x-hidden '>
+      <div className='flex flex-col items-center justify-center w-full'>
         <Header />
         <ValuesComponent />
         <Footer/>
@@ -51,11 +51,11 @@ const ValuesComponent = ()=>{
   if(!data || data.length === 0) return null;
 
   console.log(data)
-  return <section style={{maxWidth}} className="w-full h-screen">
-    <h2>{language === "EN" ? "WHAT WE REPRESENT": "O QUE REPRESENTAMOS"}</h2>
+  return <section style={{maxWidth}} className="w-full h-screen flex flex-col items-center gap-20 p-10">
+    <h2 className='text-5xl my-20'>{language === "EN" ? "WHAT WE REPRESENT": "O QUE REPRESENTAMOS"}</h2>
     <CircularGallery
-      rotationAngle={15}
-      rotationRadius={125}
+      radius={3000}
+      componentDistance={400}
     >
       <div className='w-xs h-80 bg-red-400'></div>
     </CircularGallery>
