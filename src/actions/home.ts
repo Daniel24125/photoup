@@ -15,6 +15,7 @@ export const  getData:TGetData = async (tableName: string, languageInput: Langua
         console.log(`Successfully retrieved ${records.length} records from "${tableName}"`);
         return records.map(record => {
             return {
+                //@ts-ignore
                 id: record.id,
                 ...record.fields
             }

@@ -101,6 +101,7 @@ const SustainabilitySection = ()=>{
         quote: s.desc, 
         name: s.title, 
         designation: "", 
+        // @ts-ignore
         src: s.picture as string
       }
     })} />
