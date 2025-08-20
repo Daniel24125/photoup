@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/Theme";
 import { LanguageProvider } from "@/contexts/locale";
 import { WebsiteSettingsProvider } from "@/contexts/website-settings";
 import Footer from "./components/template/Footer";
+import { Toaster } from "sonner";
 
 const geistSans = Anek_Latin({
   variable: "--font-anek-latin-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
             >
               <Nav/>  
               {children}
+              <Toaster position="bottom-center" richColors  />
             </ThemeProvider>
           </LanguageProvider>
         </WebsiteSettingsProvider>

@@ -15,6 +15,7 @@ import { sendEmail } from '@/actions/contact'
 import { useFormStatus } from 'react-dom'
 import { Spinner } from '@/components/ui/spinner'
 import { LogoBlackPrimary } from '@/components/Logos'
+import { toast } from 'sonner'
 
 const ContactsPage = () => {
   const {setNavigationTextColor, setSettingsTextColor} = useWebSettings()
@@ -93,11 +94,28 @@ const ContactForm = ()=>{
   const {language} = useLanguage()
   const [response, setResponse] = React.useState<{error: boolean, msg: string}>({error: false, msg: ""})
 
-  const submitMessage = async (formData: FormData) => {
+
+
+  const submitMessage = React.useCallback(async (formData: FormData) => {
     console.log("Submitting form data:", formData.get("name"), formData.get("email"), formData.get("message"));
     const res = await sendEmail(formData, language); 
     setResponse(res);
-  }
+  }, [language])
+
+  React.useEffect(()=>{
+    console.log("Response from form submission:", response);
+    if(response.msg){
+      if(response.error){
+        toast.error("Ocorreu um erro.", {
+          description: response.msg
+        }) 
+      }else{
+        toast.success("Mensagem enviada com sucesso!",{
+          description: response.msg
+        })
+      } 
+    }
+  }, [response])
 
   return <form action={submitMessage} className='flex flex-col gap-5'>
     <Input required name="name" type="text" placeholder={language === "EN" ? 'Name': "Nome"}/>
