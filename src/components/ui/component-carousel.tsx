@@ -14,10 +14,7 @@ const ComponentCarousel = ({
     const [count, setCount] = React.useState(0)
 
     const isChildrenValid = React.Children.count(children) > 0 && Array.isArray(children)
-    if (!isChildrenValid) {
-        console.error("CarouselScroll requires an array of children components.");
-        return null;
-    }
+   
      React.useEffect(() => {
         if (!api) return;
         setCount(api.scrollSnapList().length);
@@ -30,6 +27,10 @@ const ComponentCarousel = ({
         api?.scrollTo(index);
     }, [api])
 
+     if (!isChildrenValid) {
+        console.error("CarouselScroll requires an array of children components.");
+        return null;
+    }
     return (<div className='w-full flex flex-col gap-5 max-w-7xl'>
     
         <Carousel setApi={setApi} className="w-full" opts={{
@@ -42,7 +43,7 @@ const ComponentCarousel = ({
             <div className='w-full justify-center flex items-center gap-3 m-2 pt-5'>
                 {children.map((el, index) =>{
                     return <div
-                    
+                        key={`dot-cc-${index}`}
                         onClick={() => scrollTo(index)}
                         className={cn(
                             "rounded-full w-4 h-4  cursor-pointer",

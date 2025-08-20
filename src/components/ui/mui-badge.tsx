@@ -9,17 +9,15 @@ type AnchorOriginType = {
 type MUIBadgePropsType = {
     children: React.ReactNode, 
     color?: "primary" | "secondary" | "destructive" | "muted",
-    content?: any,
+    content?: React.ReactNode,
     anchorOrigin?: AnchorOriginType,
     className?: string,
-    invisible?: boolean
 }
 
 const MUIBadge = ({
     children, 
     color="primary", 
     anchorOrigin = {horizontal: "right", vertical: "bottom"},
-    invisible = false,
     content,
     className
 

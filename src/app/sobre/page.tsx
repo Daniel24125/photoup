@@ -85,7 +85,6 @@ const TeamComponent = ()=>{
     <div className='flex justify-evenly gap-14 flex-wrap'>
       {data.map(member => (
         <div style={{
-          //@ts-ignore
           backgroundImage: `url(${member.picture ? member.picture[0].url : '/about/default-avatar.png'})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top center',

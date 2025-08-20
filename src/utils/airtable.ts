@@ -60,6 +60,6 @@ Airtable.configure({
     apiKey: process.env.AIRTABLE_TOKEN
 });
 
-var base = Airtable.base(process.env.BASE_ID as string);
+const base = Airtable.base(process.env.BASE_ID as string);
 
 export default base

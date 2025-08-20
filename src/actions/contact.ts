@@ -1,7 +1,7 @@
 "use server"
 
 import { LanguageType } from "@/contexts/locale";
-//@ts-ignore
+//@ts-expect-error: The module is installed
 import nodemailer from "nodemailer";
 
 export type TFormDataResponse = {

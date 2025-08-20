@@ -14,17 +14,10 @@ const CarouselScroll = ({
     const [current, setCurrent] = React.useState(0)
     const [isBusy, setIsBusy] = React.useState(false)
     const {height} = useWindowSize()
-
     const isChildrenValid = React.Children.count(children) > 0 && Array.isArray(children)
-    if (!isChildrenValid) {
-        console.error("CarouselScroll requires an array of children components.");
-        return null;
-    }
-
-
 
     useEventListener("wheel", (e) => {
-        if(isBusy) return
+        if(isBusy || !isChildrenValid) return
         let alpha = -1
         if (e.deltaY > 0) {
             setCurrent(prev=> prev < children.length-1 ? prev+1 : children.length-1)
@@ -33,12 +26,8 @@ const CarouselScroll = ({
             setCurrent(prev=> prev > 0 ? prev-1 : 0)
         }
         handleScrollToSection(current + alpha)
-        handleBusyOnUserInteraction()
-       
-        
+        handleBusyOnUserInteraction()  
     })
-
-
     const handleBusyOnUserInteraction = React.useCallback(() => {
         setIsBusy(true)
         setTimeout(() => {
@@ -55,6 +44,10 @@ const CarouselScroll = ({
         });
     }, [height]);
 
+    if (!isChildrenValid) {
+        console.error("CarouselScroll requires an array of children components.");
+        return null;
+    }
 
     return (
         <>
@@ -62,6 +55,7 @@ const CarouselScroll = ({
             <div className='flex flex-col gap-3 m-2 fixed right-10 top-1/2 -translate-y-1/2 z-20'>
                 {children.map((el, index) =>{
                     return <div
+                        key={`dot-cs-${index}`}
                         onClick={()=>{
                             if(!isBusy && index !== current) {
                                 setCurrent(index)

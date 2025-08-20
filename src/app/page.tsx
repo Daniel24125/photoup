@@ -53,6 +53,7 @@ const FeatureSection = ()=>{
     <div className="w-full flex flex-wrap justify-evenly px-5">
       {data.map((f)=>{
         return <FeatureComponent
+          key={f.id}
           feature={f as unknown as TFeature}
           size="md"
         />
@@ -101,7 +102,7 @@ const SustainabilitySection = ()=>{
         quote: s.desc, 
         name: s.title, 
         designation: "", 
-        // @ts-ignore
+        // @ts-expect-error: picture exists
         src: s.picture as string
       }
     })} />
@@ -143,7 +144,6 @@ const AwardSection = ()=>{
               </div>
             </div>
             <div className="rounded-4xl flex-shrink-0" style={{
-              //@ts-ignore
               backgroundImage: `url("${award.picture![0].url}")`,
               width: 400, 
               height: 400,
