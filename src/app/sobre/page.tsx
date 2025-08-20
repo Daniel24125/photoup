@@ -1,7 +1,6 @@
 "use client"
 import { getData } from '@/actions/home'
 import NavWhiteHeader from '@/components/NavWhiteHeader'
-import CircularGallery from '@/components/ui/circular-gallery'
 import { useLanguage } from '@/contexts/locale'
 import { useDataFetch } from '@/hooks/useDataFetch'
 import useWindowSize from '@/hooks/useWindowSize'
@@ -11,6 +10,9 @@ import HeaderTitle from '../components/HeaderTitle'
 import { Button } from '@/components/ui/button'
 import { Linkedin } from 'lucide-react'
 import Link from 'next/link'
+import { CardCarousel } from '@/components/ui/card-carousel'
+import ValueCard from './components/ValueCard'
+import { TValuesData } from '@/utils/airtable'
 
 const AboutPage = () => {
   return (
@@ -54,15 +56,18 @@ const ValuesComponent = ()=>{
   if(loading) return "Loading..."
 
   if(!data || data.length === 0) return null;
-
-  return <section style={{maxWidth}} className="w-full h-screen flex flex-col items-center gap-20 p-10">
-    <h2 className='text-5xl my-20'>{language === "EN" ? "WHAT WE REPRESENT": "O QUE REPRESENTAMOS"}</h2>
-    <CircularGallery
-      radius={3000}
-      componentDistance={400}
+ 
+  return <section style={{maxWidth}} className="w-full flex flex-col items-center gap-20 p-10">
+    <h2 className='text-5xl mt-20'>{language === "EN" ? "WHAT WE REPRESENT": "O QUE REPRESENTAMOS"}</h2>
+    <CardCarousel
+        autoplayDelay={5000}
+        showPagination={false}
+        showNavigation={true}
     >
-      <div className='w-xs h-80 bg-red-400'></div>
-    </CircularGallery>
+       {data.map(val=>{ return <ValueCard key={val.id} valueData={val as unknown as TValuesData} />})}
+    </CardCarousel>
+   
+  
   </section>
 }
 
@@ -74,7 +79,6 @@ const TeamComponent = ()=>{
   if(loading) return "Loading..."
 
   if(!data || data.length === 0) return null;
-
 
   return <section style={{maxWidth}} className="w-full flex flex-col gap-20 px-10 py-28">
     <HeaderTitle title={language === "EN" ? "The Team" : "A Equipa"} size={10}/>

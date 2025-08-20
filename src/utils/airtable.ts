@@ -1,6 +1,15 @@
 import { LanguageType } from '@/contexts/locale';
 import Airtable, { FieldSet } from 'airtable';
 
+export type TValuesData = {
+    id: string,
+    image: AirtablePictureType[]
+    desc: string, 
+    title: string,
+    language: LanguageType
+}
+
+
 export type AirtablePictureType = {
     id: string,
     width: number,
