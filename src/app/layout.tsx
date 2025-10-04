@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/contexts/locale";
 import { WebsiteSettingsProvider } from "@/contexts/website-settings";
 import Footer from "./components/template/Footer";
 import { Toaster } from "sonner";
+import { LoaderProvider } from "@/contexts/loader";
 
 const geistSans = Anek_Latin({
   variable: "--font-anek-latin-sans",
@@ -35,9 +36,11 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              <Nav/>  
-              {children}
-              <Toaster position="bottom-center" richColors  />
+              <LoaderProvider>
+                <Nav/>  
+                {children}
+                <Toaster position="bottom-center" richColors  />
+              </LoaderProvider>
             </ThemeProvider>
           </LanguageProvider>
         </WebsiteSettingsProvider>

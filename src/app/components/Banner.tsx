@@ -1,6 +1,6 @@
 
 "use client"
-import { LogoTextWhite } from '@/components/Logos';
+import { LogoTextWhite, LogoWhiteVertical } from '@/components/Logos';
 import { BannerMask } from '@/components/Masks';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/locale';
@@ -24,7 +24,7 @@ const Banner = ()=>{
                 WebkitClipPath: width > 1024 && height > disableClipPathTh ? 'url(#roundedTabMask)': "",
             }} 
         >   
-            {/* <video
+            <video
                 autoPlay
                 loop
                 muted
@@ -35,9 +35,10 @@ const Banner = ()=>{
                     clipPath: width > 1024 ? 'url(#roundedTabMask)': "",
                     WebkitClipPath: width > 1024 ? 'url(#roundedTabMask)': "",
                 }}
-            /> */}
-            <div className='absolute top-1/2 -translate-y-1/2 z-10 left-14 flex flex-col gap-5'>
-                <LogoTextWhite width={600}/>
+            />
+            <div className='absolute top-1/2 -translate-1/2 z-10 left-1/2 flex justify-center items-center gap-5'>
+                <LogoWhiteVertical width={600}/>
+                 {/*<LogoTextWhite width={600}/>
                 <h4 className='text-5xl text-white'>Sustainability, Reimagined</h4>
                 <div className="flex gap-2">
                     <Link href="/contactos">
@@ -46,7 +47,7 @@ const Banner = ()=>{
                     <Link href="servicos">
                         <Button className=' cursor-pointer'>{language === "PT" ? "Serviços": "Services"}</Button>
                     </Link>
-                </div>
+                </div> */}
             </div>
             
         </div>

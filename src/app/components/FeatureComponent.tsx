@@ -7,6 +7,7 @@ export type TFeature = {
         id: string
         icon: string
         lenguage: string
+        visible: boolean
     }
 
 type TFeatureComponentProps = {

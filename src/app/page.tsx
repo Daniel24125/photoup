@@ -17,6 +17,7 @@ import {  CarouselItem } from "@/components/ui/carousel";
 import FeatureComponent, { TFeature } from "./components/FeatureComponent";
 import NavWhiteHeader from "@/components/NavWhiteHeader";
 import Footer from "./components/template/Footer";
+import LoadingPage from "./components/LoadingPage";
 
 
 const sectionClassName = `w-full h-screen flex justify-center items-center max-lg:p-0 p-5 relative`
@@ -25,7 +26,7 @@ export default function Home() {
   return <CarouselScroll>
     <LandSection/>
     <FeatureSection/>
-    <BenefitSection/>
+    {/* <BenefitSection/> */}
     <SustainabilitySection/>
     <AwardSection/>
     <Footer/>
@@ -46,13 +47,15 @@ const LandSection = () => {
 const FeatureSection = ()=>{
   const {maxWidth} = useWindowSize()
   const {data, loading} = useDataFetch(getData, "Features")
-  if(loading) return "Loading..."
-
+  
+  
   if(!data || data.length === 0) return null;
-  return <section style={{maxWidth}}  className={sectionClassName}>
-    <div className="w-full flex flex-wrap justify-evenly px-5">
+
+  return <LoadingPage id="benefits" loading={loading}>
+    <section id="benefits" style={{maxWidth}}  className={sectionClassName}>
+    <div className={cn("w-full flex flex-wrap justify-evenly px-5 ", data.length > 4 ? "": "max-w-4xl")}>
       {data.map((f)=>{
-        return <FeatureComponent
+        return f.visible && <FeatureComponent
           key={f.id}
           feature={f as unknown as TFeature}
           size="md"
@@ -60,6 +63,7 @@ const FeatureSection = ()=>{
       })}
     </div>
   </section>
+  </LoadingPage>
 }
 
 
@@ -92,68 +96,72 @@ const BenefitSection = ()=>{
 const SustainabilitySection = ()=>{
   const {maxWidth} = useWindowSize()
   const {data, loading} = useDataFetch(getData, "Sustainable Goals")
-
-  if(loading) return "Loading..."
+  
 
   if(!data || data.length === 0) return null;
-  return <section style={{maxWidth}} className={sectionClassName}>
-    <AnimatedTestimonials autoplay testimonials={data.map(s=>{
-      return {
-        quote: s.desc, 
-        name: s.title, 
-        designation: "", 
-        // @ts-expect-error: picture exists
-        src: s.picture as string
-      }
-    })} />
-  </section>
+  return <LoadingPage id="sustainability" loading={loading}>
+    <section id="sustainability" style={{maxWidth}} className={sectionClassName}>
+      <AnimatedTestimonials autoplay testimonials={data.sort((a,b)=>a.order!-b.order!).map(s=>{
+        return {
+          quote: s.desc, 
+          name: s.title, 
+          designation: "", 
+          // @ts-expect-error: picture exists
+          src: s.picture as string
+        }
+      })} />
+    </section>
+  </LoadingPage>
 }
 
 const AwardSection = ()=>{
-  const {maxWidth, width} = useWindowSize()
+  const {maxWidth} = useWindowSize()
   const {language} = useLanguage()
-  const {data} = useDataFetch(getData, "Awards")
-
+  const {data, loading} = useDataFetch(getData, "Awards")
+  
   if(!data || data.length === 0) return null;
-  return <section style={{maxWidth}} className={cn(
-    sectionClassName, 
-    "flex flex-col items-start gap-10 max-lg:p-5 max-lg:h-auto "
-  )}>
-     <HeaderTitle title={language === "EN" ? "Contests" : "Participações"} size={10}/>
+  return <LoadingPage id="sustainability" loading={loading}>
 
-    <ComponentCarousel>
-      {data.map((award, index) => {
-        return  <CarouselItem  key={index} className="flex flex-col gap-20 h-full justify-center pr-20">
-          <div className="flex justify-between gap-10">
-            <div className="flex flex-col gap-5 justify-between pb-5">
-              <div className="flex flex-col gap-5">
-                <div className="flex w-full justify-between items-center">
-                  <div className="flex gap-5">
-                    <Image className="flex-shrink-0" src={award.icon![0].url} width={50} height={0} alt={award.title}/>
-                    <div className="flex flex-col">
-                      <h3 className="text-2xl font-bold">{award.title}</h3>
-                      <span className="text-muted-foreground">{award.date}</span>
+    <section id="awards" style={{maxWidth}} className={cn(
+      sectionClassName, 
+      "flex flex-col items-start gap-10 max-lg:p-5 max-lg:h-auto "
+    )}>
+      <HeaderTitle title={language === "EN" ? "Acknolegments" : "Reconhecimento"} size={10}/>
+
+      <ComponentCarousel>
+        {data.sort((a,b)=>b.order!-a.order!).map((award, index) => {
+          return  <CarouselItem  key={index} className="flex flex-col gap-20 h-full justify-center pr-20">
+            <div className="flex justify-between gap-10">
+              <div className="flex flex-col gap-5 justify-between pb-5 w-full">
+                <div className="flex flex-col gap-5 w-full">
+                  <div className="flex w-full justify-between items-center">
+                    <div className="flex gap-5 flex-shrink-0">
+                      <Image className="w-14 h-14 flex-shrink-0" src={award.icon![0].url} width={50} height={0} alt={award.title}/>
+                      <div className="flex flex-col">
+                        <h3 className="text-2xl font-bold ">{award.title}</h3>
+                        <span className="text-muted-foreground">{award.date}</span>
+                      </div>
                     </div>
+                    {award.place && <Badge>{award.place}</Badge>}
                   </div>
-                  <Badge>{award.place}</Badge>
+                  <p className="text-justify">{award.desc}</p>
                 </div>
-                <p className="text-justify">{award.desc}</p>
+                <div className="w-full text-end">
+                  <Link target="__blank" className="underline" href={award.link as string}>{language === "EN" ? "More information": "Saber mais"}</Link>
+                </div>
               </div>
-              <div className="w-full text-end">
-                <Link target="__blank" className="underline" href={award.link as string}>{language === "EN" ? "More information": "Saber mais"}</Link>
-              </div>
+              <div className="rounded-4xl flex-shrink-0" style={{
+                backgroundImage: `url("${award.picture![0].url}")`,
+                width: 400, 
+                height: 400,
+                backgroundSize: "cover",
+                backgroundPosition: "center"
+              }}></div>
             </div>
-            <div className="rounded-4xl flex-shrink-0" style={{
-              backgroundImage: `url("${award.picture![0].url}")`,
-              width: 400, 
-              height: 400,
-              backgroundSize: "cover",
-              backgroundPosition: "center"
-            }}></div>
-          </div>
-        </CarouselItem>}
-      )}
-    </ComponentCarousel>
+          </CarouselItem>}
+        )}
+      </ComponentCarousel>
 
-  </section>
+    </section>
+  </LoadingPage>
 }

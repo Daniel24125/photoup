@@ -2,12 +2,11 @@
 
 import React from 'react'
 import Footer from '../components/template/Footer'
-import useWindowSize from '@/hooks/useWindowSize'
 import { useLanguage } from '@/contexts/locale'
 import { useDataFetch } from '@/hooks/useDataFetch'
 import { getData } from '@/actions/home'
 import { useWebSettings } from '@/contexts/website-settings'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
@@ -16,6 +15,7 @@ import { useFormStatus } from 'react-dom'
 import { Spinner } from '@/components/ui/spinner'
 import { LogoBlackPrimary } from '@/components/Logos'
 import { toast } from 'sonner'
+import LoadingPage from '../components/LoadingPage'
 
 const ContactsPage = () => {
   const {setNavigationTextColor, setSettingsTextColor} = useWebSettings()
@@ -36,20 +36,16 @@ const ContactsPage = () => {
 
 
 const Header = ()=>{
-  const {maxWidth} = useWindowSize()
   const {language} = useLanguage()
   const {data, loading} = useDataFetch(getData, "Contacts")
   
-  if(loading) return "Loading..."
-
   if(!data || data.length === 0) return null;
 
   const contacts = data[0]
 
-  return (
+  return (<LoadingPage id="contacts" loading={loading}>
     <section
       style={{
-        
         backgroundImage: `url(${contacts.picture![0].url})`, 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -65,11 +61,12 @@ const Header = ()=>{
           </>}
         />
         <InfoComponent icon={<Mail/>} info={contacts.email} />
-        <InfoComponent icon={<Phone/>} info={contacts.phone} />
+        {/* <InfoComponent icon={<Phone/>} info={contacts.phone} /> */}
         <h6 className='font-bold text-lg mb-3'>{language === "EN" ? "Get in touch": "Entre em contacto"}</h6>
         <ContactForm/>
       </div>
     </section>
+  </LoadingPage>
   )
 }
 

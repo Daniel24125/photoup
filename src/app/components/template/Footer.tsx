@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import { Mail } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
+import LoadingPage from '../LoadingPage';
 
 const footerColor= "bg-teal-200"
 
@@ -18,13 +19,13 @@ const Footer = () => {
   const {language} = useLanguage()
   const {data, loading} = useDataFetch(getData, "Contacts")
 
-  if(loading) return "Loading..."
 
   if(!data || data.length === 0) return null;
 
   const addressData = data[0]
 
-  return (    
+  return (<LoadingPage id="footer" loading={loading}>
+
     <footer className={cn('w-full flex justify-center p-10 z-0 mt-52', footerColor)}>
       <div style={{maxWidth}} className='w-full flex-col'>
         <LogoBlack width={140}/>
@@ -35,10 +36,10 @@ const Footer = () => {
               link: "/"
             }}
             navItems={[
-              {
-                title: language === "EN" ? "The System": "O Sistema",
-                link: "/?scrollTo=system"
-              },
+              // {
+              //   title: language === "EN" ? "The System": "Benefícios",
+              //   link: "/?scrollTo=benefits"
+              // },
               {
                 title: language === "EN" ? "Why us": "Benefícios",
                 link: "/?scrollTo=benefits"
@@ -59,10 +60,10 @@ const Footer = () => {
               link: "/sobre"
             }}
             navItems={[
-              {
-                title: language === "EN" ? "Our History": "A Nossa História",
-                link: "/sobre?scrollTo=history"
-              },
+              // {
+              //   title: language === "EN" ? "Our History": "A Nossa História",
+              //   link: "/sobre?scrollTo=history"
+              // },
               {
                 title: language === "EN" ? "Our Values": "Os Nossos Valores",
                 link: "/sobre?scrollTo=values"
@@ -70,6 +71,10 @@ const Footer = () => {
               {
                 title: language === "EN" ? "Our Team": "A Equipa",
                 link: "/sobre?scrollTo=team"
+              },
+              {
+                title: language === "EN" ? "Our Partners": "Os Nossos Parceiros",
+                link: "/sobre?scrollTo=partners"
               },
             ]}
           />
@@ -138,6 +143,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>  
+  </LoadingPage>  
   )
 }
 
