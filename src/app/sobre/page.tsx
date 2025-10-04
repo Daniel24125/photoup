@@ -4,7 +4,7 @@ import NavWhiteHeader from '@/components/NavWhiteHeader'
 import { useLanguage } from '@/contexts/locale'
 import { useDataFetch } from '@/hooks/useDataFetch'
 import useWindowSize from '@/hooks/useWindowSize'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Footer from '../components/template/Footer'
 import HeaderTitle from '../components/HeaderTitle'
 import { Button } from '@/components/ui/button'
@@ -15,8 +15,26 @@ import ValueCard from './components/ValueCard'
 import { TValuesData } from '@/utils/airtable'
 import Image from 'next/image'
 import LoadingPage from '../components/LoadingPage'
+import { useSearchParams } from 'next/navigation'
+import { useLoader } from '@/contexts/loader'
 
 const AboutPage = () => {
+   const searchParams = useSearchParams()
+      const { isAllLoaded } = useLoader();
+      
+      useEffect(()=>{
+          if(isAllLoaded){
+              const scrollPositionParam = searchParams.get("scrollTo")
+              if(scrollPositionParam){
+                  const el = document.getElementById(scrollPositionParam)
+                  if(el){
+                    el.scrollIntoView({behavior: "smooth"})
+                  }
+  
+              }
+          }
+      },[searchParams, isAllLoaded])
+  
   return (
     <div className='h-screen w-full overflow-y-auto overflow-x-hidden '>
       <div className='flex flex-col items-center justify-center w-full'>

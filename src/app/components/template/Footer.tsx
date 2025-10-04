@@ -42,15 +42,15 @@ const Footer = () => {
               // },
               {
                 title: language === "EN" ? "Why us": "Benefícios",
-                link: "/?scrollTo=benefits"
+                link: "/?scrollTo=benefits&pos=2"
               },
               {
                 title: language === "EN" ? "Sustainability": "Sustentabilidade",
-                link: "/?scrollTo=sustainability"
+                link: "/?scrollTo=sustainability&pos=3"
               },
               {
                 title: language === "EN" ? "Awards": "Participações",
-                link: "/?scrollTo=awards"
+                link: "/?scrollTo=awards&pos=4"
               }
             ]}
           />

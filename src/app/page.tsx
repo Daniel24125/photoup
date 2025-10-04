@@ -130,7 +130,7 @@ const AwardSection = ()=>{
 
       <ComponentCarousel>
         {data.sort((a,b)=>b.order!-a.order!).map((award, index) => {
-          return  <CarouselItem  key={index} className="flex flex-col gap-20 h-full justify-center pr-20">
+          return  <CarouselItem  key={index} className="flex flex-col gap-20 h-full justify-center ">
             <div className="flex justify-between gap-10">
               <div className="flex flex-col gap-5 justify-between pb-5 w-full">
                 <div className="flex flex-col gap-5 w-full">

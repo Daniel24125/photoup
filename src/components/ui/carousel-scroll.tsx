@@ -1,8 +1,10 @@
+import { useLoader } from '@/contexts/loader'
 import { useWebSettings } from '@/contexts/website-settings'
 import useEventListener from '@/hooks/useEventListener'
 import useWindowSize from '@/hooks/useWindowSize'
 import { cn } from '@/lib/utils'
-import React from 'react'
+import { useSearchParams } from 'next/navigation'
+import React, { useEffect } from 'react'
 
 type CarouselProps = {
     children: React.ReactNode
@@ -15,6 +17,19 @@ const CarouselScroll = ({
     const [isBusy, setIsBusy] = React.useState(false)
     const {height} = useWindowSize()
     const isChildrenValid = React.Children.count(children) > 0 && Array.isArray(children)
+    const searchParams = useSearchParams()
+    const { isAllLoaded } = useLoader();
+    
+    useEffect(()=>{
+        if(isAllLoaded){
+            const scrollPositionParam = Number(searchParams.get("pos"))
+            if(scrollPositionParam){
+                handleScrollToSection(scrollPositionParam)
+                setCurrent(scrollPositionParam)
+
+            }
+        }
+    },[searchParams, isAllLoaded])
 
     useEventListener("wheel", (e) => {
         if(isBusy || !isChildrenValid) return
