@@ -9,22 +9,22 @@ import Link from 'next/link';
 import React from 'react';
 
 const Banner = ()=>{
-    const { width} = useWindowSize();
+    const { width, height} = useWindowSize();
     const {language} = useLanguage()
 
     const viewBoxWidth = 1301;
     const viewBoxHeight = 877;
-
+    const disableClipPathTh = 600
 
     return  <>
         <BannerMask viewBoxWidth={viewBoxWidth} viewBoxHeight={viewBoxHeight}/>
         <div className={`w-full h-full relative overflow-hidden landingpage-clip`} 
             style={{
-                clipPath: width > 1024 ? 'url(#roundedTabMask)': "",
-                WebkitClipPath: width > 1024 ? 'url(#roundedTabMask)': "",
+                clipPath: width > 1024 && height > disableClipPathTh ? 'url(#roundedTabMask)': "",
+                WebkitClipPath: width > 1024 && height > disableClipPathTh ? 'url(#roundedTabMask)': "",
             }} 
-        >
-            <video
+        >   
+            {/* <video
                 autoPlay
                 loop
                 muted
@@ -35,7 +35,7 @@ const Banner = ()=>{
                     clipPath: width > 1024 ? 'url(#roundedTabMask)': "",
                     WebkitClipPath: width > 1024 ? 'url(#roundedTabMask)': "",
                 }}
-            />
+            /> */}
             <div className='absolute top-1/2 -translate-y-1/2 z-10 left-14 flex flex-col gap-5'>
                 <LogoTextWhite width={600}/>
                 <h4 className='text-5xl text-white'>Sustainability, Reimagined</h4>
