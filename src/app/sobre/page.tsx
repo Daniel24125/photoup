@@ -4,7 +4,7 @@ import NavWhiteHeader from '@/components/NavWhiteHeader'
 import { useLanguage } from '@/contexts/locale'
 import { useDataFetch } from '@/hooks/useDataFetch'
 import useWindowSize from '@/hooks/useWindowSize'
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import Footer from '../components/template/Footer'
 import HeaderTitle from '../components/HeaderTitle'
 import { Button } from '@/components/ui/button'
@@ -19,7 +19,26 @@ import { useSearchParams } from 'next/navigation'
 import { useLoader } from '@/contexts/loader'
 
 const AboutPage = () => {
-   const searchParams = useSearchParams()
+
+  
+  return (<Suspense>
+    <ScrollBehavior>
+      <div className='h-screen w-full overflow-y-auto overflow-x-hidden '>
+        <div className='flex flex-col items-center justify-center w-full'>
+          <Header />
+          <ValuesComponent />
+          <TeamComponent/>
+          {/* <PartnersComponent/> */}
+          <Footer/>
+        </div>
+      </div>
+    </ScrollBehavior>
+  </Suspense>
+  )
+}
+
+const ScrollBehavior = ({children}: {children: React.ReactNode})=>{
+     const searchParams = useSearchParams()
       const { isAllLoaded } = useLoader();
       
       useEffect(()=>{
@@ -34,19 +53,8 @@ const AboutPage = () => {
               }
           }
       },[searchParams, isAllLoaded])
-  
-  return (
-    <div className='h-screen w-full overflow-y-auto overflow-x-hidden '>
-      <div className='flex flex-col items-center justify-center w-full'>
-        <Header />
-        <ValuesComponent />
-        <TeamComponent/>
-        {/* <PartnersComponent/> */}
-        <Footer/>
-      </div>
-    </div>
-  )
-}
+      return children
+    }
 
 const Header = ()=>{
   const {maxWidth} = useWindowSize()
