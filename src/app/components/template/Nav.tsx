@@ -28,7 +28,7 @@ const Nav = () => {
     </nav>)
 }
 
-const RouterLinks = ({showIcon=true}: {showIcon?: boolean})=>{
+const RouterLinks = ({showIcon=true, onClick}: {showIcon?: boolean, onClick?: () => void})=>{
     const {width} = useWindowSize()
     const {navigationTextColor} = useWebSettings()
     const { resolvedTheme} = useTheme()
@@ -46,31 +46,29 @@ const RouterLinks = ({showIcon=true}: {showIcon?: boolean})=>{
     }, [navigationTextColor])
 
     return <>
-        <Link  className={linkClass} href="/">Home</Link>
-        <Link  className={linkClass} href="/sobre">{language ==="PT"?"Sobre Nós": "About Us"}</Link>
+        <Link onClick={onClick} className={linkClass} href="/">Home</Link>
+        <Link onClick={onClick} className={linkClass} href="/sobre">{language ==="PT"?"Sobre Nós": "About Us"}</Link>
         {showIcon && <Link  className={linkClass} href="/">{!isLogoWhite  ? <LogoIconBlack width={32} height={32}/>: <LogoIconWhite width={32} height={32}/>}</Link>}
-        <Link  className={linkClass} href="/servicos">{language ==="PT"?"Serviços": "Services"}</Link>
-        <Link  className={linkClass} href="/contactos">{language ==="PT"?"Contactos": "Contacts"}</Link>
+        <Link onClick={onClick} className={linkClass} href="/servicos">{language ==="PT"?"Serviços": "Services"}</Link>
+        <Link onClick={onClick} className={linkClass} href="/contactos">{language ==="PT"?"Contactos": "Contacts"}</Link>
     </>
 }
 
 const MobileMenu = ()=>{
+    const { settingsTextColor} = useWebSettings()
     const [open, setOpen] = useState(false)
     const { resolvedTheme} = useTheme()
     return <>
-    {/* <HamburgerButton onToggle={(isOpen =>setOpen(isOpen))}/> */}
-    <Menu className='text-white lg:hidden' onClick={()=>setOpen(true)} />
+    <Menu className={cn(settingsTextColor,'lg:hidden')} onClick={()=>setOpen(true)} />
   
     <Drawer onClose={()=>setOpen(false)} open={open}>
         <DrawerContent>
-           
             <div className='flex flex-col w-full items-center gap-5 my-10'>
-                <RouterLinks showIcon={false}/>
+                <RouterLinks showIcon={false} onClick={()=>setOpen(false)}/>
             </div>
-       
-        <DrawerFooter className="pt-2 w-full flex items-center">
-            {resolvedTheme === "light" ? <LogoBlack width={100}/> : <LogoWhite width={100}/>}
-        </DrawerFooter>
+            <DrawerFooter className="pt-2 w-full flex items-center">
+                {resolvedTheme === "light" ? <LogoBlack width={100}/> : <LogoWhite width={100}/>}
+            </DrawerFooter>
       </DrawerContent>
     </Drawer>
     </>

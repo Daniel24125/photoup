@@ -13,17 +13,17 @@ type HeaderTitleDevisor = {
 
 const HeaderTitle = ({title, size}:HeaderTitleProps) => {
   return (
-    <div className='max-lg:hidden flex gap-2.5'>
+    <div className='max-lg:text-center flex gap-2.5 lg:mb-10'>
         <div className="flex flex-col">
-            <h3 className='text-3xl lg:text-7xl mb-2'>{title}</h3>
-            <span style={{height: size}} className="w-full bg-foreground"></span>
+            <h3 className='text-3xl lg:text-7xl mb-2 font-bold'>{title}</h3>
+            <span style={{height: size}} className="w-full bg-foreground max-lg:hidden"></span>
         </div>
         <Dots size={size}/> 
     </div>
   )
 }
 
-export const Dots = ({size}: {size: number})=> <div className='flex gap-2.5 items-end'>
+export const Dots = ({size}: {size: number})=> <div className='flex gap-2.5 items-end max-lg:hidden'>
     <div style={{
         width: size, 
         height: size

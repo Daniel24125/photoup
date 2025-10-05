@@ -58,11 +58,11 @@ const Header = ()=>{
         backgroundImage: 'url(/about/about_header.jpg)', 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-      }} className="relative flex flex-col items-center justify-center h-screen w-screen after:w-full after:h-full after:z-0 after:absolute after:top-0 after:left-0 after:bg-black/50"
+      }} className="relative flex flex-col items-center justify-center h-[calc(100vh-300px)] lg:h-screen w-screen after:w-full after:h-full after:z-0 after:absolute after:top-0 after:left-0 after:bg-black/50"
     >
-      <div style={{maxWidth}} className='p-10 gap-5 z-10 w-full h-full flex flex-col items-end justify-center text-end'>
-        <h1 className="mt-50 text-9xl font-bold mb-4 text-white">SUSTAINABILITY</h1>
-        <p className="text-9xl font-bold text-teal-400">REIMAGINED</p>
+      <div style={{maxWidth}} className='p-10 gap-5 z-10 w-full h-full flex flex-col lg:items-end justify-center text-center lg:text-end'>
+        <h1 className="lg:mt-50 text-4xl lg:text-9xl font-bold mb-4 text-white">SUSTAINABILITY</h1>
+        <p className="text-3xl lg:text-9xl font-bold text-teal-400">REIMAGINED</p>
       </div>
     </NavWhiteHeader>
   )
@@ -78,7 +78,7 @@ const ValuesComponent = ()=>{
  
   return <LoadingPage id="values" loading={loading}>
     <section id="values" style={{maxWidth}} className="w-full flex flex-col items-center gap-20 p-10">
-      <h2 className='text-5xl mt-20'>{language === "EN" ? "WHAT WE REPRESENT": "O QUE REPRESENTAMOS"}</h2>
+      <h2 className='text-2xl lg:text-5xl mt-20 max-lg:text-center'>{language === "EN" ? "WHAT WE REPRESENT": "O QUE REPRESENTAMOS"}</h2>
       <CardCarousel
           autoplayDelay={5000}
           showPagination={false}

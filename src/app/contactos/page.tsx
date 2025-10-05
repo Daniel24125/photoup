@@ -51,9 +51,9 @@ const Header = ()=>{
         backgroundImage: `url(${contacts.picture![resolvedTheme === "light" ? 0: 1].url})`, 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-      }} className="relative h-screen w-screen flex justify-start items-center"
+      }} className="relative h-screen w-screen flex justify-center lg:justify-start items-center"
     >
-      <div className='px-6 py-2 flex flex-col h-2/3 min-h-96 bg-background rounded-2xl border-accent ml-20 '>
+      <div className='px-6 py-2 flex flex-col h-2/3 min-h-96 bg-background rounded-2xl border-accent lg:ml-20 overflow-y-auto'>
         <h3 className='font-bold text-2xl my-5'>{language === "EN" ? "Contacts": "Contactos"}</h3>
         <InfoComponent
           icon={<MapPin/>}

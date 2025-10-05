@@ -111,7 +111,7 @@ const Footer = () => {
             ]}
           />
         </div>
-        <div className='flex max-lg:flex-col justify-between mt-16 items-center'>
+        <div className='flex max-lg:flex-col justify-between mt-16 items-center gap-3'>
           <span className='text-xs'>© Photoup {new Date().getFullYear()}, all rights reserved</span>
           <PartnersComponent/>
           <div className='flex gap-1 items-center'>
