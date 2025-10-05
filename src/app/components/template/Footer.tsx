@@ -29,7 +29,7 @@ const Footer = () => {
     <footer className={cn('w-full flex justify-center p-10 z-0 mt-52', footerColor)}>
       <div style={{maxWidth}} className='w-full flex-col'>
         {resolvedTheme === "light" ? <LogoBlack width={140}/> : <LogoWhite width={140}/>}
-        <div className='mt-16 flex flex-col lg:flex-row items-center lg:justify-between gap-y-7'>
+        <div className='mt-16 flex flex-col lg:flex-row max-lg:items-center lg:justify-between gap-y-7'>
           <FooterNavComponent
             sectionTitle={{
               title:"HOME",
