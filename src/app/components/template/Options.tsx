@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils'
 
 const Options = () => {
   return (
-    <div className='absolute top-0 right-6 flex gap-8 backdrop-blur-md px-5 py-3 rounded-2xl z-40'>
+    <div className='absolute top-1/2 -translate-y-1/2 right-0 flex gap-8 backdrop-blur-md px-1 py-1 rounded-2xl z-40'>
         <LanguageSelection/>
         <ThemeSelection/>
     </div>

@@ -41,7 +41,7 @@ const AboutPage = () => {
         <Header />
         <ValuesComponent />
         <TeamComponent/>
-        <PartnersComponent/>
+        {/* <PartnersComponent/> */}
         <Footer/>
       </div>
     </div>
@@ -132,14 +132,14 @@ const TeamComponent = ()=>{
 const PartnersComponent = ()=>{
   const {maxWidth} = useWindowSize()
   const {data, loading} = useDataFetch(getData, "Partners")
-  const {language} = useLanguage()
+  // const {language} = useLanguage()
 
   if(!data || data.length === 0) return null;
  
 
-  return <LoadingPage id="team" loading={loading}>
+  return <LoadingPage id="partners" loading={loading}>
     <section id="partners" style={{maxWidth}} className="w-full flex flex-col justify-center gap-20 p-10">
-      <HeaderTitle title={language === "EN" ? "Our Partners" : "Os Nossos Parceiros"} size={10}/>
+      {/* <HeaderTitle title={language === "EN" ? "Our Partners" : "Os Nossos Parceiros"} size={10}/> */}
       <div className='w-full flex justify-center items-center gap-20'>
         {data.map(partner=>{ return partner.visible && <Link href={partner.link as string} target="__blank" key={partner.id}>
           <Image title={partner.title as string} src={partner.icon![0].url} width={300} height={250} alt={partner.title}/>

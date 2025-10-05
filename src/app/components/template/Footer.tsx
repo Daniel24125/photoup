@@ -11,6 +11,7 @@ import { Mail } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
 import LoadingPage from '../LoadingPage';
+import Image from 'next/image';
 
 const footerColor= "bg-teal-200"
 
@@ -126,15 +127,16 @@ const Footer = () => {
             ]}
           />
         </div>
-        <div className='flex justify-between mt-16 items-end'>
+        <div className='flex justify-between mt-16 items-center'>
           <span className='text-xs'>© Photoup {new Date().getFullYear()}, all rights reserved</span>
-          <div className='flex gap-2'>
+          <PartnersComponent/>
+          {/* <div className='flex gap-2'>
             <Link href={`mailto:${addressData.email!}`}>
               <Button  variant={"outline"} size={"icon"} className={cn('border-black cursor-pointer', footerColor)}>
                 <Mail/>
               </Button>
             </Link>
-          </div>
+          </div> */}
           <div className='flex gap-1 items-center'>
             <Link className="text-xs" href="/terms">Termos e Condições</Link>
             |
@@ -146,6 +148,25 @@ const Footer = () => {
   </LoadingPage>  
   )
 }
+
+
+const PartnersComponent = ()=>{
+  const {maxWidth} = useWindowSize()
+  const {data, loading} = useDataFetch(getData, "Partners")
+  // const {language} = useLanguage()
+
+  if(!data || data.length === 0) return null;
+ 
+
+  return <LoadingPage id="partners" loading={loading}>
+    <div className='flex justify-center items-center gap-2'>
+      {data.map(partner=>{ return partner.visible && <Link href={partner.link as string} target="__blank" key={partner.id}>
+        <Image title={partner.title as string} src={partner.icon![0].url} width={100} height={250} alt={partner.title}/>
+      </Link>})}
+    </div>
+  </LoadingPage>
+}
+
 
 type TNavItem = {
   title: string 

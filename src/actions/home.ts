@@ -22,9 +22,9 @@ export const  getData:TGetData = async (tableName: string, languageInput: Langua
         }); 
     } catch (error) {
         if (error instanceof Error) {
-        console.error("Error fetching records with .all():", error.message);
+            console.error("Error fetching records with .all():", error.message);
         } else {
-        console.error("Unknown error fetching records with .all():", error);
+            console.error("Unknown error fetching records with .all():", error);
         }
         return [];
     }
