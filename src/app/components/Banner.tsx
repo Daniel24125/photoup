@@ -7,11 +7,11 @@ import useWindowSize from '@/hooks/useWindowSize';
 import React, { useEffect, useMemo } from 'react';
 
 const Banner = ()=>{
-    const { width, height} = useWindowSize();
+    const { width, height, maxWidth} = useWindowSize();
     const {setDarkMode, setLightMode} = useWebSettings()
 
     const viewBoxWidth = 1301;
-    const viewBoxHeight = 877;
+    const viewBoxHeight = 911;
     const disableClipPathTh = 600
 
     const triggerMobile = useMemo(()=>{
@@ -30,7 +30,7 @@ const Banner = ()=>{
 
     return  <>
         <BannerMask viewBoxWidth={viewBoxWidth} viewBoxHeight={viewBoxHeight}/>
-        <div className={`w-full h-full relative overflow-hidden landingpage-clip`} 
+        <div className={`w-full h-full relative overflow-hidden landingpage-clip lg:mt-10`} 
             style={{
                 clipPath: triggerMobile ? "":'url(#roundedTabMask)',
                 WebkitClipPath: triggerMobile ? "":'url(#roundedTabMask)',
