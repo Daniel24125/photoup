@@ -17,6 +17,7 @@ import {  CarouselItem } from "@/components/ui/carousel";
 import FeatureComponent, { TFeature } from "./components/FeatureComponent";
 import Footer from "./components/template/Footer";
 import LoadingPage from "./components/LoadingPage";
+import NavWhiteHeader from "@/components/NavWhiteHeader";
 
 
 const sectionClassName = `w-full lg:h-screen flex justify-center items-center p-5 relative`
@@ -38,7 +39,7 @@ const DesktopPageContent = ()=>{
 }
 
 const MobilePageContent = ()=>{
-  return <div className="overflow-scroll h-screen w-full ">
+  return <div className="overflow-y-scroll h-screen w-full ">
       <LandSection/>
       <FeatureSection/>
       <SustainabilitySection/>
@@ -50,9 +51,11 @@ const MobilePageContent = ()=>{
 const LandSection = () => {
   const {maxWidth} = useWindowSize()
 
-  return <header style={{maxWidth}} className={cn(sectionClassName, "h-9/12 pt-0 p-0 mb-20")}>
-    <Banner/>
-  </header>
+  return <NavWhiteHeader style={{maxWidth}} className={cn(sectionClassName, "h-9/12 pt-0 p-0 mb-20")}>
+       <Banner/>
+    </NavWhiteHeader>
+    // <header style={{maxWidth}} className={cn(sectionClassName, "h-9/12 pt-0 p-0 mb-20")}>
+  {/* </header> */}
    
  
 

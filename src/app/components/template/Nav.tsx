@@ -9,12 +9,9 @@ import { ClassValue } from 'clsx'
 import { cn } from '@/lib/utils'
 import { useWebSettings } from '@/contexts/website-settings'
 import { useTheme } from 'next-themes'
-import HamburgerButton from '../HamburgerMenu'
-import { Drawer, DrawerContent, DrawerFooter, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
+import { Drawer, DrawerContent, DrawerFooter} from '@/components/ui/drawer'
 import { LogoBlack, LogoWhite } from '@/components/Logos'
-import { Button } from '@/components/ui/button'
-import { Hamburger, HamburgerIcon, Menu, X } from 'lucide-react'
-import { DialogTitle } from '@radix-ui/react-dialog'
+import { Menu } from 'lucide-react'
 
 
 
@@ -40,6 +37,7 @@ const RouterLinks = ({showIcon=true}: {showIcon?: boolean})=>{
     const isLogoWhite = React.useMemo(()=>{
         return navigationTextColor === "text-white" || resolvedTheme !== "light"
     }, [navigationTextColor, width, resolvedTheme])
+    
     const linkClass:  ClassValue = React.useMemo(()=>{
         return cn(
            "hover:text-primary duration-200",
@@ -59,10 +57,9 @@ const RouterLinks = ({showIcon=true}: {showIcon?: boolean})=>{
 const MobileMenu = ()=>{
     const [open, setOpen] = useState(false)
     const { resolvedTheme} = useTheme()
-    const {language} = useLanguage()
     return <>
     {/* <HamburgerButton onToggle={(isOpen =>setOpen(isOpen))}/> */}
-    <Menu onClick={()=>setOpen(true)} />
+    <Menu className='text-white lg:hidden' onClick={()=>setOpen(true)} />
   
     <Drawer onClose={()=>setOpen(false)} open={open}>
         <DrawerContent>
