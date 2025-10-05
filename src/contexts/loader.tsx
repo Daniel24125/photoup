@@ -1,7 +1,10 @@
 "use client";
 
+import { LogoIconBlack, LogoIconWhite } from "@/components/Icons";
 import { motion, AnimatePresence } from "framer-motion";
-import { createContext, useContext, useState, ReactNode, useMemo } from "react";
+import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
+import { createContext, useContext, useState, ReactNode, useMemo, useEffect } from "react";
 
 type LoaderContextType = {
   registerLoading: (id: string) => void;
@@ -11,9 +14,16 @@ type LoaderContextType = {
 
 const LoaderContext = createContext<LoaderContextType | undefined>(undefined);
 type TLoadingState = Set<string> | null
+const logoSize = 50
+
 
 export  const LoaderProvider = ({ children }: { children: ReactNode }) => {
   const [loadingSet, setLoadingSet] = useState<TLoadingState>(null);
+  const pathname = usePathname()
+
+  useEffect(()=>{
+    setLoadingSet(null)
+  }, [pathname])
 
   const registerLoading = (id: string) => {
     setLoadingSet((prev) => {
@@ -34,7 +44,8 @@ export  const LoaderProvider = ({ children }: { children: ReactNode }) => {
 
   const isAllLoaded = useMemo(()=>{
     return loadingSet !== null && loadingSet.size === 0;
-  }, [loadingSet])
+  }, [loadingSet, pathname])
+
 
   return (
     <LoaderContext.Provider value={{ registerLoading, unregisterLoading, isAllLoaded }}>
@@ -42,20 +53,37 @@ export  const LoaderProvider = ({ children }: { children: ReactNode }) => {
           {children}
    
         <AnimatePresence>
-          {!isAllLoaded && (
-            <motion.div
-              key="loader"
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 flex items-center justify-center bg-white z-50"
-            >
-              <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-gray-900"></div>
-            </motion.div>
-          )}
+          {!isAllLoaded && <LoaderSpninner/>}
         </AnimatePresence>
     </LoaderContext.Provider>
   );
+}
+
+const LoaderSpninner = ()=>{
+  const { resolvedTheme} = useTheme()
+
+  return <motion.div  
+    exit={{opacity: 0}}
+    className="absolute inset-0 flex items-center justify-center z-50 bg-background">
+      <motion.div
+        initial={{ opacity: 0, rotate: 0, scale: 0.8 }}
+        animate={{
+          opacity: [0, 1, 1, 0],
+          rotate: [0, 360],
+          scale: [0.8, 1, 1.2, 1],
+        }}
+        transition={{
+          duration: 2.5,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatDelay: 0.1,
+        }}
+       
+       
+      >
+        {resolvedTheme === "light" ? <LogoIconBlack  width={logoSize} height={logoSize} /> : <LogoIconWhite width={logoSize} height={logoSize}/>}
+      </motion.div>
+    </motion.div>
 }
 
 export function useLoader() {

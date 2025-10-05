@@ -26,7 +26,6 @@ const CarouselScroll = ({
             if(scrollPositionParam){
                 handleScrollToSection(scrollPositionParam)
                 setCurrent(scrollPositionParam)
-
             }
         }
     },[searchParams, isAllLoaded])
@@ -67,7 +66,7 @@ const CarouselScroll = ({
     return (
         <>
             {children}
-            <div className='flex flex-col gap-3 m-2 fixed right-10 top-1/2 -translate-y-1/2 z-20'>
+            <div className=' flex-col gap-3 m-2 fixed right-10 top-1/2 -translate-y-1/2 z-20 hidden lg:flex'>
                 {children.map((el, index) =>{
                     return <div
                         key={`dot-cs-${index}`}
@@ -80,7 +79,7 @@ const CarouselScroll = ({
                         }}
                         className={cn(
                             "rounded-full w-4 h-4 bg-neutral-500 cursor-pointer",
-                            index === current ? " outline-1 outline-offset-4 outline-teal-400": ""
+                            index === current ? "  outline-1 outline-offset-4 outline-teal-400": ""
                         )}></div>
                 })}
             </div>

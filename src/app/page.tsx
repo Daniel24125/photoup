@@ -15,33 +15,47 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import {  CarouselItem } from "@/components/ui/carousel";
 import FeatureComponent, { TFeature } from "./components/FeatureComponent";
-import NavWhiteHeader from "@/components/NavWhiteHeader";
 import Footer from "./components/template/Footer";
 import LoadingPage from "./components/LoadingPage";
 
 
-const sectionClassName = `w-full h-screen flex justify-center items-center max-lg:p-0 p-5 relative`
+const sectionClassName = `w-full lg:h-screen flex justify-center items-center p-5 relative`
 
 export default function Home() { 
-  return <CarouselScroll>
-    <LandSection/>
-    <FeatureSection/>
-    {/* <BenefitSection/> */}
-    <SustainabilitySection/>
-    <AwardSection/>
-    <Footer/>
+  const {width} = useWindowSize()
+  
+  return width > 1024 ? <DesktopPageContent/> : <MobilePageContent/>
+}
+
+const DesktopPageContent = ()=>{
+  return   <CarouselScroll>
+      <LandSection/>
+      <FeatureSection/>
+      <SustainabilitySection/>
+      <AwardSection/>
+      <Footer/>
   </CarouselScroll>
+}
+
+const MobilePageContent = ()=>{
+  return <div className="overflow-scroll h-screen w-full ">
+      <LandSection/>
+      <FeatureSection/>
+      <SustainabilitySection/>
+      <AwardSection/>
+      <Footer/>
+  </div> 
 }
 
 const LandSection = () => {
   const {maxWidth} = useWindowSize()
 
-  return (
-    <NavWhiteHeader  style={{maxWidth}}  className={sectionClassName}>
-      <Banner/>
-    </NavWhiteHeader>
+  return <header style={{maxWidth}} className={cn(sectionClassName, "h-9/12 pt-0 p-0 mb-20")}>
+    <Banner/>
+  </header>
+   
  
-  );
+
 };
 
 const FeatureSection = ()=>{
@@ -131,32 +145,23 @@ const AwardSection = ()=>{
       <ComponentCarousel>
         {data.sort((a,b)=>b.order!-a.order!).map((award, index) => {
           return  <CarouselItem  key={index} className="flex flex-col gap-20 h-full justify-center ">
-            <div className="flex justify-between gap-10">
-              <div className="flex flex-col gap-5 justify-between pb-5 w-full">
+            <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-10 ">
+              <div className="flex flex-col gap-5 justify-between pb-5 w-full lg:w-[calc(100%-430px)] relative">
                 <div className="flex flex-col gap-5 w-full">
-                  <div className="flex w-full justify-between items-center">
-                    <div className="flex gap-5 flex-shrink-0">
-                      <Image className="w-14 h-14 flex-shrink-0" src={award.icon![0].url} width={50} height={0} alt={award.title}/>
-                      <div className="flex flex-col">
-                        <h3 className="text-2xl font-bold ">{award.title}</h3>
-                        <span className="text-muted-foreground">{award.date}</span>
-                      </div>
-                    </div>
-                    {award.place && <Badge>{award.place}</Badge>}
-                  </div>
-                  <p className="text-justify">{award.desc}</p>
+                  <AwardTitleComponent title={award.title}date={award.date!} icon={award.icon![0].url} />
+                  <p className="text-justify text-sm lg:text-base">{award.desc}</p>
                 </div>
-                <div className="w-full text-end">
+                <div className="w-full text-end hidden lg:block">
                   <Link target="__blank" className="underline" href={award.link as string}>{language === "EN" ? "More information": "Saber mais"}</Link>
                 </div>
               </div>
-              <div className="rounded-4xl flex-shrink-0" style={{
+              <div className="rounded-4xl flex-shrink-0 flex justify-end items-start p-5 w-full lg:w-[400px] h-56 lg:h-[400px]" style={{
                 backgroundImage: `url("${award.picture![0].url}")`,
-                width: 400, 
-                height: 400,
                 backgroundSize: "cover",
                 backgroundPosition: "center"
-              }}></div>
+              }}>
+                {award.place && <Badge>{award.place}</Badge>}
+              </div>
             </div>
           </CarouselItem>}
         )}
@@ -164,4 +169,20 @@ const AwardSection = ()=>{
 
     </section>
   </LoadingPage>
+}
+
+type TAwardTitleProps = {
+  icon: string, 
+  title: string, 
+  date: string
+}
+
+const AwardTitleComponent = ({icon, title, date}: TAwardTitleProps)=>{
+  return <div className="flex gap-5 flex-shrink-0 w-full">
+      <Image className="w-7 h-7 lg:w-14 lg:h-14 flex-shrink-0" src={icon} width={50} height={0} alt={title}/>
+      <div className="flex flex-col w-full">
+        <h3 className="text-lg lg:text-2xl font-bold w-full text-wrap">{title}</h3>
+        <span className="text-xs lg:text-base text-muted-foreground">{date}</span>
+      </div>
+    </div>
 }

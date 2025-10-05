@@ -29,7 +29,7 @@ const Footer = () => {
     <footer className={cn('w-full flex justify-center p-10 z-0 mt-52', footerColor)}>
       <div style={{maxWidth}} className='w-full flex-col'>
         {resolvedTheme === "light" ? <LogoBlack width={140}/> : <LogoWhite width={140}/>}
-        <div className='mt-16 flex justify-between'>
+        <div className='mt-16 flex flex-col lg:flex-row items-center lg:justify-between gap-y-7'>
           <FooterNavComponent
             sectionTitle={{
               title:"HOME",
@@ -84,34 +84,19 @@ const Footer = () => {
               link: "/servicos"
             }}
             navItems={[]}
-            // navItems={[
-            //   {
-            //     title: language === "EN" ? "Biogas Upgrade": "Upgrade de Biogás",
-            //     link: "/servicos?scrollTo=biogasUpgrade"
-            //   },
-            //   {
-            //     title: language === "EN" ? "Potential Assessment": "Avaliação de Potencial",
-            //     link: "/servicos?scrollTo=assessment"
-            //   },
-            //   {
-            //     title: language === "EN" ? "Monitoring System": "Sistemas de Monitorização",
-            //     link: "/servicos?scrollTo=monitoring"
-            //   }
-            // ]}
           />
           <FooterNavComponent
             sectionTitle={{
               title: language === "EN" ? "CONTACTS": "CONTACTOS",
               link: addressData.link!,
-              newWindow: true,
-              
+              newWindow: true,  
             }}
             navItems={[
               {
                 title: addressData.address!,
                 link: addressData.link!,
                 newWindow: true,
-                className: "max-w-44"
+                className: "max-w-44 lg:text-start text-center"
               },
               {
                 title: `${addressData.addressCode!} ${addressData.city!}`,
@@ -126,16 +111,9 @@ const Footer = () => {
             ]}
           />
         </div>
-        <div className='flex justify-between mt-16 items-center'>
+        <div className='flex max-lg:flex-col justify-between mt-16 items-center'>
           <span className='text-xs'>© Photoup {new Date().getFullYear()}, all rights reserved</span>
           <PartnersComponent/>
-          {/* <div className='flex gap-2'>
-            <Link href={`mailto:${addressData.email!}`}>
-              <Button  variant={"outline"} size={"icon"} className={cn('border-black cursor-pointer', footerColor)}>
-                <Mail/>
-              </Button>
-            </Link>
-          </div> */}
           <div className='flex gap-1 items-center'>
             <Link className="text-xs" href="/terms">Termos e Condições</Link>
             |
@@ -184,11 +162,11 @@ const FooterNavComponent = ({
   sectionTitle, 
   navItems
 }: FooterNavComponentProps)=>{
-  return <div className='flex flex-col gap-2'>
+  return <div className='flex flex-col gap-2 items-center lg:items-start'>
     <Link className='font-bold text-lg cursor-pointer' href={sectionTitle.link}>{sectionTitle.title}</Link>
     {navItems.map(ni=>{
       return <Link target={ni.newWindow ? "_blank": ""} className={
-        cn('pl-5 cursor-pointer', ni.className)
+        cn('lg:pl-5 cursor-pointer', ni.className)
       } key={ni.title} href={ni.link}>{ni.title}</Link>
     })}
   </div>

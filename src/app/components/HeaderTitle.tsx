@@ -1,4 +1,3 @@
-import { cn } from '@/lib/utils';
 import React from 'react'
 
 type HeaderTitleProps = {
@@ -14,9 +13,9 @@ type HeaderTitleDevisor = {
 
 const HeaderTitle = ({title, size}:HeaderTitleProps) => {
   return (
-    <div className='flex gap-2.5'>
+    <div className='max-lg:hidden flex gap-2.5'>
         <div className="flex flex-col">
-            <h3 className='text-7xl mb-2'>{title}</h3>
+            <h3 className='text-3xl lg:text-7xl mb-2'>{title}</h3>
             <span style={{height: size}} className="w-full bg-foreground"></span>
         </div>
         <Dots size={size}/> 

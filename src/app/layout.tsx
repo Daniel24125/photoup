@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import { Anek_Latin } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/template/Nav";
-
 import { ThemeProvider } from "@/components/Theme";
 import { LanguageProvider } from "@/contexts/locale";
 import { WebsiteSettingsProvider } from "@/contexts/website-settings";
-import Footer from "./components/template/Footer";
 import { Toaster } from "sonner";
 import { LoaderProvider } from "@/contexts/loader";
 
@@ -26,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <body className={`${geistSans.variable} antialiased w-screen flex flex-col items-center`}>
         <WebsiteSettingsProvider>
           <LanguageProvider>

@@ -40,7 +40,7 @@ const ComponentCarousel = ({
             <CarouselContent>
                 {children}
             </CarouselContent>
-            <div className='w-full justify-center flex items-center gap-3 m-2 pt-5'>
+            <div className='w-full justify-center flex items-center gap-3 m-2 pt-0 lg:pt-5'>
                 {children.map((el, index) =>{
                     return <div
                         key={`dot-cc-${index}`}
