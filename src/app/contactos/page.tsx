@@ -13,9 +13,10 @@ import { Button } from '@/components/ui/button'
 import { sendEmail } from '@/actions/contact'
 import { useFormStatus } from 'react-dom'
 import { Spinner } from '@/components/ui/spinner'
-import { LogoBlackPrimary } from '@/components/Logos'
+import { LogoBlackPrimary, LogoWhitePrimary } from '@/components/Logos'
 import { toast } from 'sonner'
 import LoadingPage from '../components/LoadingPage'
+import { useTheme } from 'next-themes'
 
 const ContactsPage = () => {
   const {setNavigationTextColor, setSettingsTextColor} = useWebSettings()
@@ -38,6 +39,7 @@ const ContactsPage = () => {
 const Header = ()=>{
   const {language} = useLanguage()
   const {data, loading} = useDataFetch(getData, "Contacts")
+  const { resolvedTheme} = useTheme()
   
   if(!data || data.length === 0) return null;
 
@@ -46,12 +48,12 @@ const Header = ()=>{
   return (<LoadingPage id="contacts" loading={loading}>
     <section
       style={{
-        backgroundImage: `url(${contacts.picture![0].url})`, 
+        backgroundImage: `url(${contacts.picture![resolvedTheme === "light" ? 0: 1].url})`, 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }} className="relative h-screen w-screen flex justify-start items-center"
     >
-      <div className='px-6 py-2 flex flex-col h-2/3 min-h-96 bg-white rounded-2xl border-accent ml-20 '>
+      <div className='px-6 py-2 flex flex-col h-2/3 min-h-96 bg-background rounded-2xl border-accent ml-20 '>
         <h3 className='font-bold text-2xl my-5'>{language === "EN" ? "Contacts": "Contactos"}</h3>
         <InfoComponent
           icon={<MapPin/>}
@@ -64,6 +66,9 @@ const Header = ()=>{
         {/* <InfoComponent icon={<Phone/>} info={contacts.phone} /> */}
         <h6 className='font-bold text-lg mb-3'>{language === "EN" ? "Get in touch": "Entre em contacto"}</h6>
         <ContactForm/>
+        <div className='w-full flex justify-center mt-7'>
+          {resolvedTheme === "light" ? <LogoBlackPrimary width={100}/>: <LogoWhitePrimary width={100}/>}
+        </div>
       </div>
     </section>
   </LoadingPage>
@@ -119,9 +124,7 @@ const ContactForm = ()=>{
     <Input required name="email" type="email" placeholder={'Email'}/>
     <Textarea required name="message" className='resize-none' rows={10}  placeholder={language === "EN" ? "Type your message here.": "Escreva aqui a sua mensagem"} />
     <SubmitButton/>
-    <div className='w-full flex justify-center'>
-      <LogoBlackPrimary width={100}/>
-    </div>
+    
   </form>
 }
 

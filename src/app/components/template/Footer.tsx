@@ -1,35 +1,34 @@
 "use client"
 
 import { getData } from '@/actions/home';
-import { LogoBlack } from '@/components/Logos';
-import { Button } from '@/components/ui/button';
+import { LogoBlack, LogoWhite } from '@/components/Logos';
 import { useLanguage } from '@/contexts/locale';
 import { useDataFetch } from '@/hooks/useDataFetch';
 import useWindowSize from '@/hooks/useWindowSize';
 import { cn } from '@/lib/utils';
-import { Mail } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
 import LoadingPage from '../LoadingPage';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
-const footerColor= "bg-teal-200"
 
 const Footer = () => {
   const { maxWidth} = useWindowSize();
   const {language} = useLanguage()
   const {data, loading} = useDataFetch(getData, "Contacts")
-
-
+  const { resolvedTheme} = useTheme()
+  
   if(!data || data.length === 0) return null;
-
+  
+  const footerColor= resolvedTheme === "light" ? "bg-teal-200" : "bg-teal-800"
   const addressData = data[0]
 
   return (<LoadingPage id="footer" loading={loading}>
 
     <footer className={cn('w-full flex justify-center p-10 z-0 mt-52', footerColor)}>
       <div style={{maxWidth}} className='w-full flex-col'>
-        <LogoBlack width={140}/>
+        {resolvedTheme === "light" ? <LogoBlack width={140}/> : <LogoWhite width={140}/>}
         <div className='mt-16 flex justify-between'>
           <FooterNavComponent
             sectionTitle={{
@@ -151,7 +150,7 @@ const Footer = () => {
 
 
 const PartnersComponent = ()=>{
-  const {maxWidth} = useWindowSize()
+  const { resolvedTheme} = useTheme()
   const {data, loading} = useDataFetch(getData, "Partners")
   // const {language} = useLanguage()
 
@@ -159,9 +158,9 @@ const PartnersComponent = ()=>{
  
 
   return <LoadingPage id="partners" loading={loading}>
-    <div className='flex justify-center items-center gap-2'>
+    <div className={cn('flex justify-center items-center gap-2 rounded-2xl p-2', resolvedTheme === "dark" ? "bg-white": "")}>
       {data.map(partner=>{ return partner.visible && <Link href={partner.link as string} target="__blank" key={partner.id}>
-        <Image title={partner.title as string} src={partner.icon![0].url} width={100} height={250} alt={partner.title}/>
+        <Image title={partner.title as string} src={partner.icon![0].url} width={partner.title === "Cesae Digital" ? 75: 130} height={250} alt={partner.title}/>
       </Link>})}
     </div>
   </LoadingPage>
