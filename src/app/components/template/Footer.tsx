@@ -127,6 +127,7 @@ const Footer = () => {
 }
 
 
+
 const PartnersComponent = ()=>{
   const { resolvedTheme} = useTheme()
   const {data, loading} = useDataFetch(getData, "Partners")
@@ -138,7 +139,7 @@ const PartnersComponent = ()=>{
   return <LoadingPage id="partners" loading={loading}>
     <div className={cn('flex justify-center items-center gap-2 rounded-2xl p-2', resolvedTheme === "dark" ? "bg-white": "")}>
       {data.map(partner=>{ return partner.visible && <Link href={partner.link as string} target="__blank" key={partner.id}>
-        <Image title={partner.title as string} src={partner.icon![0].url} width={partner.title === "Cesae Digital" ? 100: 170} height={250} alt={partner.title}/>
+        <Image title={partner.title as string} src={partner.icon![0].url} width={partner.size! as number} height={250} alt={partner.title}/>
       </Link>})}
     </div>
   </LoadingPage>
