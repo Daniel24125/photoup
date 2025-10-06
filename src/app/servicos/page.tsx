@@ -31,7 +31,7 @@ const Header = ()=>{
       <div className='w-full max-w-xl backdrop-blur-md p-10 gap-5 z-10 text-center flex flex-col items-center'>
         <h4 className="text-5xl font-bold mb-4 text-white">{language === "EN" ? "CULTIVATING": "A CULTIVAR"}</h4>
         <p className="text-white ">
-          {language === "EN" ? "Our services are still growing, and we're working hard to offer the best possible solutions.": "Os nossos serviços ainda estão a crescer e estamos ainda a trabalhar para podermos oferecer as melhores soluções possíveis."}
+          {language === "EN" ? "Our services are still growing, and we're working hard to offer the best possible solutions.": "Os nossos serviços ainda estão a crescer e estamos a trabalhar afincadamente para oferecer as melhores soluções."}
         </p>
         {/* <Button className='cursor-pointer'>{language === "EN" ? "Subscribe": "Subscrever"}</Button> */}
       </div>
