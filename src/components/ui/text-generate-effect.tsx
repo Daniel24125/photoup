@@ -19,7 +19,7 @@ export const TextGenerateEffect = ({
   const [scope, animate] = useAnimate();
   const wordsArray = words.split(" ");
   useEffect(() => {
-    scope.current.querySelectorAll("span").forEach((el) => {
+    scope.current.querySelectorAll("span").forEach((el: HTMLSpanElement) => {
       el.style.opacity = "0";
       if (filter) el.style.filter = "blur(10px)";
     });

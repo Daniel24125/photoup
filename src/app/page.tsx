@@ -78,11 +78,9 @@ const MissionSection = ()=>{
     }
   },[language])
 
-  console.log(mission)
-
   return <section  id="benefits" style={{maxWidth}}  className={cn(sectionClassName, "relative min-h-screen")}>
       <Particles
-
+        
         particleColors={['#2AC5C1']}
         particleCount={600}
         particleSpread={10}
