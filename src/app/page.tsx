@@ -79,7 +79,7 @@ const MissionSection = ()=>{
   },[language])
 
 
-  return <section  id="benefits" style={{maxWidth}}  className={cn(sectionClassName, "relative")}>
+  return <section  id="benefits" style={{maxWidth}}  className={cn(sectionClassName, "relative min-h-screen")}>
       <Particles
 
         particleColors={['#2AC5C1']}
@@ -105,7 +105,7 @@ const FeatureSection = ()=>{
   if(!data || data.length === 0) return null;
 
   return <LoadingPage id="benefits" loading={loading}>
-    <section id="benefits" style={{maxWidth}}  className={sectionClassName}>
+    <section id="benefits" style={{maxWidth}}  className={cn(sectionClassName, "min-h-screen")}>
     <div className={cn("w-full flex flex-wrap justify-evenly px-5 ", data.length > 4 ? "": "max-w-4xl")}>
       {data.map((f)=>{
         return f.visible && <FeatureComponent
@@ -153,7 +153,7 @@ const SustainabilitySection = ()=>{
 
   if(!data || data.length === 0) return null;
   return <LoadingPage id="sustainability" loading={loading}>
-    <section id="sustainability" style={{maxWidth}} className={sectionClassName}>
+    <section id="sustainability" style={{maxWidth}} className={cn(sectionClassName, "min-h-screen")}>
       <AnimatedTestimonials autoplay testimonials={data.sort((a,b)=>a.order!-b.order!).map(s=>{
         return {
           quote: s.desc, 
@@ -177,7 +177,7 @@ const AwardSection = ()=>{
 
     <section id="awards" style={{maxWidth}} className={cn(
       sectionClassName, 
-      "flex flex-col items-start gap-10 max-lg:p-5 max-lg:h-auto "
+      "flex flex-col items-start gap-10 max-lg:p-5 min-h-screen max-lg:h-auto "
     )}>
       <HeaderTitle title={language === "EN" ? "Acknolegments" : "Reconhecimento"} size={10}/>
 
