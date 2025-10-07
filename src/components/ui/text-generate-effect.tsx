@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { motion, stagger, useAnimate } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -19,6 +19,10 @@ export const TextGenerateEffect = ({
   const [scope, animate] = useAnimate();
   const wordsArray = words.split(" ");
   useEffect(() => {
+    scope.current.querySelectorAll("span").forEach((el) => {
+      el.style.opacity = "0";
+      if (filter) el.style.filter = "blur(10px)";
+    });
     animate(
       "span",
       {
@@ -30,11 +34,11 @@ export const TextGenerateEffect = ({
         delay: stagger(delay),
       }
     );
-  }, [scope.current]);
+  }, [scope.current, words]);
 
-  const renderWords = () => {
+  const renderWords = useCallback(() => {
     return (
-      <motion.div ref={scope}>
+      <motion.div key={words} ref={scope}>
         {wordsArray.map((word, idx) => {
           return (
             <motion.span
@@ -50,7 +54,7 @@ export const TextGenerateEffect = ({
         })}
       </motion.div>
     );
-  };
+  }, [words])
 
   return (
     <div className={cn("font-bold", className)}>

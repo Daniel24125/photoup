@@ -20,7 +20,7 @@ export default function useOnScreen(
       if (ref.current == null) return
       observer.unobserve(ref.current)
     }
-  }, [ref.current, rootMargin])
+  }, [ref, rootMargin])
   
   return isVisible
 }

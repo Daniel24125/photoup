@@ -78,6 +78,7 @@ const MissionSection = ()=>{
     }
   },[language])
 
+  console.log(mission)
 
   return <section  id="benefits" style={{maxWidth}}  className={cn(sectionClassName, "relative min-h-screen")}>
       <Particles
@@ -92,7 +93,15 @@ const MissionSection = ()=>{
         disableRotation={false}
       />
     <div ref={ref}  className="w-full max-w-4xl flex flex-wrap backdrop-blur-md justify-evenly px-5 absolute">
-      {isVisible && <TextGenerateEffect delay={0.05}  className="text-center"  duration={0.5} words={mission} />}
+     {isVisible && (
+      <TextGenerateEffect
+        key={language + mission}  // 👈 force remount when text OR language changes
+        delay={0.05}
+        className="text-center"
+        duration={0.5}
+        words={mission}
+      />
+    )}
     </div>
   </section>
 }
