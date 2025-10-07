@@ -1,7 +1,7 @@
 "use client"
 import CarouselScroll from "@/components/ui/carousel-scroll";
 import Banner from "./components/Banner";
-import React from "react"
+import React, { useRef } from "react"
 import { getData } from "@/actions/home";
 import { useDataFetch } from "@/hooks/useDataFetch";
 import { cn } from "@/lib/utils";
@@ -18,6 +18,9 @@ import FeatureComponent, { TFeature } from "./components/FeatureComponent";
 import Footer from "./components/template/Footer";
 import LoadingPage from "./components/LoadingPage";
 import NavWhiteHeader from "@/components/NavWhiteHeader";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import useOnScreen from "@/hooks/useOnScreen";
+import Particles from "@/components/Particles";
 
 
 const sectionClassName = `w-full lg:h-screen flex justify-center items-center p-5 relative`
@@ -31,6 +34,7 @@ export default function Home() {
 const DesktopPageContent = ()=>{
   return   <CarouselScroll>
       <LandSection/>
+      <MissionSection/>
       <FeatureSection/>
       <SustainabilitySection/>
       <AwardSection/>
@@ -41,6 +45,7 @@ const DesktopPageContent = ()=>{
 const MobilePageContent = ()=>{
   return <div className="overflow-y-scroll h-screen w-full ">
       <LandSection/>
+      <MissionSection/>
       <FeatureSection/>
       <SustainabilitySection/>
       <AwardSection/>
@@ -56,10 +61,41 @@ const LandSection = () => {
     </NavWhiteHeader>
     // <header style={{maxWidth}} className={cn(sectionClassName, "h-9/12 pt-0 p-0 mb-20")}>
   {/* </header> */}
-   
- 
-
 };
+
+const MissionSection = ()=>{
+  const {maxWidth} = useWindowSize()
+  const {language} = useLanguage()
+  const ref = useRef(null)
+  const isVisible = useOnScreen(ref)
+  const [mission, setMission] = React.useState<string>("")
+
+  React.useEffect(()=>{
+    if(language === "EN") {
+      setMission("At PhotoUP, we believe that innovation and sustainability are key drivers for a better future (and planet). Our mission is to develop biological and technological solutions that combine scientific knowledge, accessibility, and positive environmental and social impact. By integrating science, technology, and nature, we can transform global challenges into opportunities for sustainable and resilient growth across various industrial sectors." )
+    } else {
+      setMission("Na PhotoUP, acreditamos que a inovação e a sustentabilidade são os motores para um futuro (e planeta) melhor. A nossa missão é desenvolver soluções biológicas e tecnológicas que aliam conhecimento científico, acessibilidade e impacto ambiental e social positivo. Ao integrar ciência, tecnologia e natureza, trabalhamos para transformar desafios globais em oportunidades de crescimento sustentável e resiliente em diferentes setores industriais.")
+    }
+  },[language])
+
+
+  return <section  id="benefits" style={{maxWidth}}  className={cn(sectionClassName, "relative")}>
+      <Particles
+
+        particleColors={['#2AC5C1']}
+        particleCount={600}
+        particleSpread={10}
+        speed={0.1}
+        particleBaseSize={70}
+        moveParticlesOnHover={true}
+        alphaParticles={true}
+        disableRotation={false}
+      />
+    <div ref={ref}  className="w-full max-w-4xl flex flex-wrap backdrop-blur-md justify-evenly px-5 absolute">
+      {isVisible && <TextGenerateEffect delay={0.05}  className="text-center"  duration={0.5} words={mission} />}
+    </div>
+  </section>
+}
 
 const FeatureSection = ()=>{
   const {maxWidth} = useWindowSize()
