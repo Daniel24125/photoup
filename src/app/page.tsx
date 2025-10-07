@@ -64,7 +64,7 @@ const LandSection = () => {
 };
 
 const MissionSection = ()=>{
-  const {maxWidth} = useWindowSize()
+  const {maxWidth, width} = useWindowSize()
   const {language} = useLanguage()
   const ref = useRef(null)
   const isVisible = useOnScreen(ref)
@@ -85,7 +85,7 @@ const MissionSection = ()=>{
         particleCount={600}
         particleSpread={10}
         speed={0.1}
-        particleBaseSize={70}
+        particleBaseSize={width > 1024 ? 70 : 130}
         moveParticlesOnHover={true}
         alphaParticles={true}
         disableRotation={false}
