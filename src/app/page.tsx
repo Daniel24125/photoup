@@ -78,7 +78,7 @@ const MissionSection = ()=>{
     }
   },[language])
 
-  return <section  id="benefits" style={{maxWidth}}  className={cn(sectionClassName, "relative min-h-screen")}>
+  return <section  id="mission" style={{maxWidth}}  className={cn(sectionClassName, "relative min-h-screen")}>
       <Particles
         
         particleColors={['#2AC5C1']}
@@ -159,6 +159,7 @@ const SustainabilitySection = ()=>{
   
 
   if(!data || data.length === 0) return null;
+
   return <LoadingPage id="sustainability" loading={loading}>
     <section id="sustainability" style={{maxWidth}} className={cn(sectionClassName, "min-h-screen")}>
       <AnimatedTestimonials autoplay testimonials={data.sort((a,b)=>a.order!-b.order!).map(s=>{
@@ -186,7 +187,7 @@ const AwardSection = ()=>{
       sectionClassName, 
       "flex flex-col items-start gap-10 max-lg:p-5 min-h-screen max-lg:h-auto "
     )}>
-      <HeaderTitle title={language === "EN" ? "Acknolegments" : "Reconhecimento"} size={10}/>
+      <HeaderTitle title={language === "EN" ? "Acknowledgments" : "Reconhecimento"} size={10}/>
 
       <ComponentCarousel>
         {data.sort((a,b)=>b.order!-a.order!).map((award, index) => {

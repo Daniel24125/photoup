@@ -42,17 +42,28 @@ const ScrollBehavior = ({children}: {children: React.ReactNode})=>{
       const { isAllLoaded } = useLoader();
       
       useEffect(()=>{
-          if(isAllLoaded){
-              const scrollPositionParam = searchParams.get("scrollTo")
-              if(scrollPositionParam){
-                  const el = document.getElementById(scrollPositionParam)
-                  if(el){
-                    el.scrollIntoView({behavior: "smooth"})
-                  }
-  
-              }
+        const tryScrollToElement = (scrollPositionParam: string)=>{
+          
+          const el = document.getElementById(scrollPositionParam)
+          console.log(el, isAllLoaded)
+          if(el){
+            el.scrollIntoView({behavior: "smooth"})
+          }else{
+            setTimeout(()=>{
+              tryScrollToElement(scrollPositionParam)
+          }, 500)
           }
+        }
+
+
+        if(isAllLoaded){
+            const scrollPositionParam = searchParams.get("scrollTo")
+            if(scrollPositionParam){
+                tryScrollToElement(scrollPositionParam)
+            }
+        }
       },[searchParams, isAllLoaded])
+
       return children
     }
 

@@ -41,7 +41,11 @@ const Footer = () => {
               //   link: "/?scrollTo=benefits"
               // },
               {
-                title: language === "EN" ? "Why us": "Benefícios",
+                title: language === "EN" ? "Our Mission": "Missão",
+                link: "/?scrollTo=mission&pos=1"
+              },
+              {
+                title: language === "EN" ? "Our Vision": "Visão",
                 link: "/?scrollTo=benefits&pos=2"
               },
               {
@@ -49,7 +53,7 @@ const Footer = () => {
                 link: "/?scrollTo=sustainability&pos=3"
               },
               {
-                title: language === "EN" ? "Awards": "Participações",
+                title: language === "EN" ? "Acknowledgments": "Reconhecimento",
                 link: "/?scrollTo=awards&pos=4"
               }
             ]}
@@ -72,10 +76,10 @@ const Footer = () => {
                 title: language === "EN" ? "Our Team": "A Equipa",
                 link: "/sobre?scrollTo=team"
               },
-              {
-                title: language === "EN" ? "Our Partners": "Os Nossos Parceiros",
-                link: "/sobre?scrollTo=partners"
-              },
+              // {
+              //   title: language === "EN" ? "Our Partners": "Os Nossos Parceiros",
+              //   link: "/sobre?scrollTo=partners"
+              // },
             ]}
           />
            <FooterNavComponent
