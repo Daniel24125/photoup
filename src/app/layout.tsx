@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Anek_Latin } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Nav from "./components/template/Nav";
 import { ThemeProvider } from "@/components/Theme";
@@ -38,6 +39,7 @@ export default function RootLayout({
                 <Nav/>  
                 {children}
                 <Toaster position="bottom-center" richColors  />
+                <Analytics />
               </LoaderProvider>
             </ThemeProvider>
           </LanguageProvider>
