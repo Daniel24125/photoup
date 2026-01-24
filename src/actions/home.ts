@@ -10,7 +10,7 @@ export const getData: TGetData = async (tableName: string, languageInput: Langua
     console.log(`[getData] Fetching from local DB for table: "${tableName}" with language: "${languageInput}"`);
 
     try {
-        // cast to any or Record<string, any> to allow dynamic access by tableName
+        // cast to any or Record<string, any> to allow dynamic access by table Name
         const db = dbData as Record<string, any>;
 
         if (!db[tableName]) {
