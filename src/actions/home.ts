@@ -20,7 +20,7 @@ export const getData: TGetData = async (tableName: string, languageInput: Langua
             return [];
         }
 
-        const records = db[tableName].filter((record: any) => record.language === languageInput);
+        const records = db[tableName].filter((record: IFeaturesTableFields) => record.language === languageInput);
 
         console.log(`[getData] Successfully retrieved ${records.length} records from "${tableName}"`);
         return records;
