@@ -10,8 +10,8 @@ export const getData: TGetData = async (tableName: string, languageInput: Langua
     console.log(`[getData] Fetching from local DB for table: "${tableName}" with language: "${languageInput}"`);
 
     try {
-        // cast to any or Record<string, any> to allow dynamic access by table Name
-        const db = dbData as Record<string, any>;
+        // cast to Record<string, IFeaturesTableFields[]> to allow dynamic access by table Name and avoid any
+        const db = dbData as unknown as Record<string, IFeaturesTableFields[]>;
 
         if (!db[tableName]) {
             console.warn(`[getData] Table "${tableName}" not found in local DB. `);
