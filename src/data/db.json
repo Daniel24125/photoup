@@ -1,0 +1,826 @@
+{
+  "Features": [
+    {
+      "id": "80675a31-4f1a-4cab-a321-0b2540e46c0a",
+      "title": "Acessibilidade",
+      "desc": "Tornamos o conhecimento científico aplicável e acessível a diferentes setores.",
+      "language": "PT",
+      "icon":"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-university-icon lucide-university'><path d='M14 21v-3a2 2 0 0 0-4 0v3'/><path d='M18 12h.01'/><path d='M18 16h.01'/><path d='M22 7a1 1 0 0 0-1-1h-2a2 2 0 0 1-1.143-.359L13.143 2.36a2 2 0 0 0-2.286-.001L6.143 5.64A2 2 0 0 1 5 6H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z'/><path d='M6 12h.01'/><path d='M6 16h.01'/><circle cx='12' cy='10' r='2'/></svg>",
+      "visible": true
+    },
+    {
+      "id": "376b4ca3-28cc-45ae-8501-b890b566fde6",
+      "title": "Transição Energética",
+      "desc": "Aceleramos a mudança para fontes de energia limpa.",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-recycle-icon lucide-recycle'><path d='M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5'/><path d='M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12'/><path d='m14 16-3 3 3 3'/><path d='M8.293 13.596 7.196 9.5 3.1 10.598'/><path d='m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843'/><path d='m13.378 9.633 4.096 1.098 1.097-4.096'/></svg>",
+      "language": "PT",
+      "visible": true
+    },
+     {
+      "id": "085c504a-f110-4ef2-8ed7-814221bb338e",
+      "title": "Economia Circular",
+      "desc": "Promovemos eficiência e sustentabilidade, valorizando recursos e processos dos nossos clientes.",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-lightbulb-icon lucide-lightbulb'><path d='M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5'/><path d='M9 18h6'/><path d='M10 22h4'/></svg>",
+      "language": "PT",
+      "visible": true
+    },
+     {
+      "id": "f30c961a-9e18-49a1-897b-196facbf431c",
+      "title": "Crescimento Resiliente",
+      "desc": "Promovemos cadeias de valor fortes, adaptáveis e sustentáveis.",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-scaling-icon lucide-scaling'><path d='M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7'/><path d='M14 15H9v-5'/><path d='M16 3h5v5'/><path d='M21 3 9 15'/></svg>",
+      "language": "PT",
+      "visible": true
+    },
+     {
+      "id": "4e021544-e75c-4ffb-a470-f445cea2a768",
+      "title": "Parcerias",
+      "desc": "Dedicamo-nos a estabelecer fortes parcerias com todos os nossos contactos.",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-handshake-icon lucide-handshake'><path d='m11 17 2 2a1 1 0 1 0 3-3'/><path d='m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4'/><path d='m21 3 1 11h-2'/><path d='M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3'/><path d='M3 4h8'/></svg>",
+      "language": "PT",
+      "visible": true
+    },
+     {
+      "id": "2b7f79e4-7b7e-45b8-96fe-7e4b1bbd0ebd",
+      "title": "Tecnologia responsável",
+      "desc": "Inovámos com ética e impacto positivo no planeta e nas pessoas.",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-sprout-icon lucide-sprout'><path d='M7 20h10'/><path d='M10 20c5.5-2.5.8-6.4 3-10'/><path d='M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z'/><path d='M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z'/></svg>",
+      "language": "PT",
+      "visible": true
+    },
+
+    {
+      "id": "08145a3a-e7da-4821-9d85-8e5aa4f51027",
+      "title": "Accessibility",
+      "desc": "We make scientific knowledge applicable and accessible to different sectors.",
+      "language": "EN",
+      "icon":"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-university-icon lucide-university'><path d='M14 21v-3a2 2 0 0 0-4 0v3'/><path d='M18 12h.01'/><path d='M18 16h.01'/><path d='M22 7a1 1 0 0 0-1-1h-2a2 2 0 0 1-1.143-.359L13.143 2.36a2 2 0 0 0-2.286-.001L6.143 5.64A2 2 0 0 1 5 6H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z'/><path d='M6 12h.01'/><path d='M6 16h.01'/><circle cx='12' cy='10' r='2'/></svg>",
+      "visible": true
+    },
+    {
+      "id": "ed6dcff7-2a29-4d67-964c-269a379add54",
+      "title": "Energy Transition",
+      "desc": "Accelerating the shift to clean energy sources.",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-recycle-icon lucide-recycle'><path d='M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5'/><path d='M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12'/><path d='m14 16-3 3 3 3'/><path d='M8.293 13.596 7.196 9.5 3.1 10.598'/><path d='m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843'/><path d='m13.378 9.633 4.096 1.098 1.097-4.096'/></svg>",
+      "language": "EN",
+      "visible": true
+    },
+     {
+      "id": "463a2c64-fa3c-437f-ac65-6e2326d17e96",
+      "title": "Circular Economy",
+      "desc": "Promoting efficiency and sustainability, valuing resources and processes of our clients.",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-lightbulb-icon lucide-lightbulb'><path d='M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5'/><path d='M9 18h6'/><path d='M10 22h4'/></svg>",
+      "language": "EN",
+      "visible": true
+    },
+     {
+      "id": "0edf4ad1-3b53-46a5-bdd1-cb2ef6ab18a6",
+      "title": "Resilient Growth",
+      "desc": "Promoting strong, adaptable and sustainable value chains.",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-scaling-icon lucide-scaling'><path d='M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7'/><path d='M14 15H9v-5'/><path d='M16 3h5v5'/><path d='M21 3 9 15'/></svg>",
+      "language": "EN",
+      "visible": true
+    },
+     {
+      "id": "47356d12-6d7f-488d-98a2-6abf6413eb2e",
+      "title": "Partnerships",
+      "desc": "We dedicate ourselves to establishing strong partnerships with all our contacts.",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-handshake-icon lucide-handshake'><path d='m11 17 2 2a1 1 0 1 0 3-3'/><path d='m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4'/><path d='m21 3 1 11h-2'/><path d='M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3'/><path d='M3 4h8'/></svg>",
+      "language": "EN",
+      "visible": true
+    },
+     {
+      "id": "e14da2b9-feb8-4bbc-89bc-9f6a565dbdb2",
+      "title": "Responsible Technology",
+      "desc": "We innovate with ethics and positive impact on the planet and people.",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-sprout-icon lucide-sprout'><path d='M7 20h10'/><path d='M10 20c5.5-2.5.8-6.4 3-10'/><path d='M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z'/><path d='M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z'/></svg>",
+      "language": "EN",
+      "visible": true
+    }
+
+
+  ],
+
+  "Sustainable Goals": [
+    {
+      "id": "395d1883-610f-403c-925e-b6c7f89cc000",
+      "title": "ODS 7: Energia Acessível e Limpa",
+      "desc": "Promover o acesso a fontes de energia renováveis e limpas, como o biometano, e contribuir para aumentar a participação de energias renováveis na matriz energética",
+      "language": "PT",
+      "order": 7,
+      "picture": "https://images.pexels.com/photos/2861857/pexels-photo-2861857.jpeg"
+    },
+    {
+      "id": "5393d4f9-a7d3-4f29-9f68-f56587fbb67a",
+      "title": "ODS 9: Indústria, Inovação e Infraestrutura",
+      "desc": "Fomentar a inovação tecnológica no setor das energias renováveis e contribuir para a construção de infraestruturas resilientes e sustentáveis",
+      "language": "PT",
+      "order": 9,
+      "picture": "https://images.pexels.com/photos/3785932/pexels-photo-3785932.jpeg"
+    },
+    {
+      "id": "8c748198-2fc5-47f6-af03-dd015b4e6f00",
+      "title": "ODS 11: Cidades e Comunidades Sustentáveis",
+      "desc": "Tornar as comunidades mais inclusivas, seguras, resilientes e sustentáveis, através da gestão eficiente de resíduos e da produção de energia limpa",
+      "language": "PT",
+      "order": 11,
+      "picture": "https://images.pexels.com/photos/169677/pexels-photo-169677.jpeg"
+    },
+    {
+      "id": "dd604854-5e33-4f47-a68f-c04108112f95",
+      "title": "ODS 12: Consumo e Produção Responsáveis",
+      "desc": "Promover a gestão sustentável e o uso eficiente dos recursos naturais, transformando resíduos em recursos e incentivando a economia circular",
+      "language": "PT",
+      "order": 12,
+      "picture": "https://images.pexels.com/photos/287229/pexels-photo-287229.jpeg"
+    },
+    {
+      "id": "7dd0f322-b313-42be-b2e0-909f8d6b008a",
+      "title": "ODS 13: Ação Climática",
+      "desc": "Contribuir significativamente para a redução das emissões de gases com efeito de estufa através da valorização do biogás   e da substituição dos combustíveis fósseis",
+      "language": "PT",
+      "order": 13,
+      "picture": "https://images.pexels.com/photos/2990650/pexels-photo-2990650.jpeg"
+    },
+
+    {
+      "id": "8e3e2f81-3342-4309-a423-c871430c9158",
+      "title": "SDG 7: Clean and Accessible Energy",
+      "desc": "Promotes access to clean, renewable energy sources, such as biomethane, and contributes to increasing the share of renewable energy in the energy matrix",
+      "language": "EN",
+      "order": 7,
+      "picture": "https://images.pexels.com/photos/2861857/pexels-photo-2861857.jpeg"
+    },
+    {
+      "id": "7f868fe7-7a5b-4d9b-a5f9-51df6fae35e5",
+      "title": "SDG 9: Industry, Innovation and Infastructure",
+      "desc": "It promotes technological innovation in the renewable energy sector and contributes to the construction of resilient and sustainable infrastructures",
+      "language": "EN",
+      "order": 9,
+      "picture": "https://images.pexels.com/photos/3785932/pexels-photo-3785932.jpeg"
+    },
+    {
+      "id": "59448105-37f4-49a3-80a4-24dcac66669f",
+      "title": "SDG 11: Sustainable Cities and Communities",
+      "desc": "Helps make cities and human settlements more inclusive, safe, resilient, and sustainable through efficient waste management and clean energy production",
+      "language": "EN",
+      "order": 11,
+      "picture": "https://images.pexels.com/photos/169677/pexels-photo-169677.jpeg"
+    },
+    {
+      "id": "ab9d4ff1-e2bf-4878-a3f5-fe496a4110be",
+      "title": "SGD 12: Responsible Consumption and Production",
+      "desc": "Promotes sustainable management and efficient use of natural resources, transforming waste into resources and encouraging the application of circular economy principles",
+      "language": "EN",
+      "order": 12,
+      "picture": "https://images.pexels.com/photos/287229/pexels-photo-287229.jpeg"
+    },
+    {
+      "id": "c6ef905c-76d2-40cc-99ec-2d7337396e1d",
+      "title": "SGD 13: Climate Action",
+      "desc": "Our solution contributes significantly to the reduction of greenhouse gas emissions through CO2 capture and the replacement of fossil fuels",
+      "language": "EN",
+      "order": 13,
+      "picture": "https://images.pexels.com/photos/2990650/pexels-photo-2990650.jpeg"
+    }
+    
+
+
+
+
+
+
+
+
+  ],
+
+  "Awards": [
+{
+      "id": "bc5a94de-e5b0-4925-a4c2-bac4d2d70399",
+      "title": "BlueBioValue",
+      "desc": "A PhotoUP foi finalista no concurso de ideação Blue Bio Value, destacando-se pela inovação e compromisso com soluções sustentáveis em bioeconomia azul, entre as melhores ideias apresentadas no evento.",
+      "language": "PT",
+      "date": "dezembro, 2024",
+      "order": 1,
+      "link": "https://www.bluebiovalue.com/ideation/teams/photoup_ch4/",
+      "place": "Finalista",
+      "icon": [
+        {
+          "url": "/assets/blue_icon.png"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/BlueBioValue.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ffd6f23d-4dea-43f5-922e-680e52ed5da6",
+      "title": "SpinUM",
+      "desc": "A PhotoUP conquistou o 1.º lugar no concurso de ideação SpinUM, destacando-se pela criatividade, inovação e potencial de impacto do seu projeto, reconhecido como a melhor ideia empreendedora do evento.",
+      "language": "PT",
+      "date": "março, 2025",
+      "order": 1,
+      "link": "https://www.tecminho.uminho.pt/noticia/photoup-vence-o-spinum-2025",
+      "place": "1º lugar",
+      "icon": [
+        {
+          "url": "/assets/spinum_icon.png"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/spinum.jpg"
+        }
+      ]
+    },
+    {
+      "id": "8b4b5005-011d-4882-aaa7-0d6ca5d24c4a",
+      "title": "Participação no podcast UMINHO I&D da RUM ",
+      "desc": "PhotoUP participou no podcast UMINHO I&D, da RUM, onde partilhou a sua jornada empreendedora, o impacto das suas soluções inovadoras e a experiência em promover a sustentabilidade através da tecnologia.",
+      "language": "PT",
+      "date": "abril, 2025",
+      "order": 1,
+      "link": "https://www.rum.pt/news/photoup-ch4-upgrade-de-biogas-a-biometano-atraves-de-microalgas",
+      "place": "",
+      "icon": [
+        {
+          "url": "/assets/rum_icon.jpeg"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/rum.jpg"
+        }
+      ]
+    },
+    {
+      "id": "a018529a-84b2-4a9d-b18a-3e78291a91bb",
+      "title": "GreenTech Innovation Challenge",
+      "desc": "A PhotoUP conquistou o 1.º lugar no GreenTech Innovation Challenge, destacando-se pelo desenvolvimento de soluções tecnológicas sustentáveis e pelo seu contributo inovador para a transição ecológica.",
+      "language": "PT",
+      "date": "julho, 2025",
+      "order": 1,
+      "link": "https://www.linkedin.com/posts/cesae-digital_%F0%9D%97%9A%F0%9D%97%BF%F0%9D%97%B2%F0%9D%97%B2%F0%9D%97%BB%F0%9D%97%A7%F0%9D%97%B2%F0%9D%97%B0%F0%9D%97%B5-%F0%9D%97%96%F0%9D%97%B5%F0%9D%97%AE%F0%9D%97%B9%F0%9D%97%B9%F0%9D%97%B2%F0%9D%97%BB%F0%9D%97%B4%F0%9D%97%B2-activity-7349467555566186496-qTon?utm_source=share&utm_medium=member_android&rcm=ACoAAFQAN1YBCNUpHC5zkLtjjIpOrbid-hFW7Ug ",
+      "place": "1º lugar",
+      "icon": [
+        {
+          "url": "/assets/GreenTech_icon.png"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/GreenTech.jpg"
+        }
+      ]
+    },
+    {
+      "id": "4c3d4fac-3736-4902-b951-893f2fe98fbe",
+      "title": "Voucher para Startups",
+      "desc": "A PhotoUP foi contemplada com o Voucher para Startups – Novos Produtos Verdes e Digitais, recebendo um financiamento de 30 000 € para o desenvolvimento de soluções inovadoras que promovem a sustentabilidade e a digitalização.",
+      "language": "PT",
+      "date": "agosto, 2025",
+      "order": 1,
+      "link": "https://www.iapmei.pt/Paginas/Voucher-para-Startups-Novos-Produtos-Verdes-e-Di.aspx",
+      "place": "",
+      "icon": [
+        {
+          "url": "/assets/voucher_icon.png"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/voucher.jpg"
+        }
+      ]
+    },
+    {
+      "id": "b07a0d69-2aa9-452e-86a8-dbd8682a341d",
+      "title": "BluAct 2025",
+      "desc": "A PhotoUP é a grande vencedora da quinta edição do BluAct.",
+      "language": "PT",
+      "date": "novembro, 2025",
+      "order": 1,
+      "link": "https://www.cm-matosinhos.pt/servicos/intervencao-social/acao-social-e-saude/noticias/noticia/bluact-ja-tem-vencedores",
+      "place": "1º lugar",
+      "icon": [
+        {
+          "url": "/assets/BluAct_icon.png"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/BluAct.jpg"
+        }
+      ]
+    },
+
+
+    {
+      "id": "76c91892-dfe4-4a8f-a520-d062e1a5e0b2",
+      "title": "BlueBioValue",
+      "desc": "PhotoUP was a finalist in the Blue Bio Value Ideation competition, standing out for its innovation and commitment to sustainable blue bioeconomy solutions, among the most promising ideas presented at the event.",
+      "language": "EN",
+      "date": "December, 2024",
+      "order": 1,
+      "link": "https://www.bluebiovalue.com/ideation/teams/photoup_ch4/",
+      "place": "Finalist",
+      "icon": [
+        {
+          "url": "/assets/blue_icon.png"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/BlueBioValue.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2b2f6687-b3d0-4e0c-b125-c7661b0998f2",
+      "title": "SpinUM",
+      "desc": "PhotoUP won 1st place in the SpinUM Ideation competition, standing out for the creativity, innovation, and impact potential of its project, recognized as the best entrepreneurial idea of the event.",
+      "language": "EN",
+      "date": "March, 2025",
+      "order": 1,
+      "link": "https://www.tecminho.uminho.pt/noticia/photoup-vence-o-spinum-2025",
+      "place": "1st place",
+      "icon": [
+        {
+          "url": "/assets/spinum_icon.png"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/spinum.jpg"
+        }
+      ]
+    },
+    {
+      "id": "66877d02-e39c-41ec-8acc-f62cee263c72",
+      "title": "Participation in RUM's UMINHO I&D podcast",
+      "desc": "PhotoUP took part in RUM’s UMINHO I&D podcast, sharing its entrepreneurial journey, the impact of its innovative solutions, and its experience in promoting sustainability through technology.",
+      "language": "EN",
+      "date": "April, 2025",
+      "order": 1,
+      "link": "https://www.rum.pt/news/photoup-ch4-upgrade-de-biogas-a-biometano-atraves-de-microalgas",
+      "place": "",
+      "icon": [
+        {
+          "url": "/assets/rum_icon.jpeg"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/rum.jpg"
+        }
+      ]
+    },
+    {
+      "id": "9d134966-ad67-4c1f-8d22-21799f11100c",
+      "title": "GreenTech Innovation Challenge",
+      "desc": "PhotoUP won 1st place in the GreenTech Innovation Challenge, standing out for developing sustainable technological solutions and contributing innovatively to the green transition.",
+      "language": "EN",
+      "date": "July, 2025",
+      "order": 1,
+      "link": "https://www.linkedin.com/posts/cesae-digital_%F0%9D%97%9A%F0%9D%97%BF%F0%9D%97%B2%F0%9D%97%B2%F0%9D%97%BB%F0%9D%97%A7%F0%9D%97%B2%F0%9D%97%B0%F0%9D%97%B5-%F0%9D%97%96%F0%9D%97%B5%F0%9D%97%AE%F0%9D%97%B9%F0%9D%97%B9%F0%9D%97%B2%F0%9D%97%BB%F0%9D%97%B4%F0%9D%97%B2-activity-7349467555566186496-qTon?utm_source=share&utm_medium=member_android&rcm=ACoAAFQAN1YBCNUpHC5zkLtjjIpOrbid-hFW7Ug ",
+      "place": "1st place",
+      "icon": [
+        {
+          "url": "/assets/GreenTech_icon.png"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/GreenTech.jpg"
+        }
+      ]
+    },
+    {
+      "id": "5b3e7b59-3b63-41a6-bb42-62be265d64fb",
+      "title": "Startup Voucher",
+      "desc": "PhotoUP was awarded the Startup Voucher – New Green and Digital Products, receiving €30,000 in funding to develop innovative solutions that foster sustainability and digital transformation.",
+      "language": "EN",
+      "date": "August, 2025",
+      "order": 1,
+      "link": "https://www.iapmei.pt/Paginas/Voucher-para-Startups-Novos-Produtos-Verdes-e-Di.aspx",
+      "place": "",
+      "icon": [
+        {
+          "url": "/assets/voucher_icon.png"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/voucher.jpg"
+        }
+      ]
+    },
+    {
+      "id": "7f9e7ee2-daca-4e3d-b0b3-f2dbac9ab9f8",
+      "title": "BluAct 2025",
+      "desc": "PhotoUP is the big winner of the 5th edition of BluAct",
+      "language": "EN",
+      "date": "Novembre, 2025",
+      "order": 1,
+      "link": "https://www.cm-matosinhos.pt/servicos/intervencao-social/acao-social-e-saude/noticias/noticia/bluact-ja-tem-vencedores",
+      "place": "1st place",
+      "icon": [
+        {
+          "url": "/assets/BluAct_icon.png"
+        }
+      ],
+      "picture": [
+        {
+          "url": "/assets/BluAct.jpg"
+        }
+      ]
+    }
+    
+    
+  ],
+
+  "Values": [
+    {
+      "id": "0e5767a7-5386-411d-8f2f-d6a133bbdb99",
+      "title": "Sustentabilidade",
+      "desc": "A sustentabilidade mantém-nos focados na nossa missão de criar um Mundo melhor",
+      "language": "PT",
+      "image": [
+        {
+          "url": "/assets/sustainability.jpg"
+        }
+      ]
+    },
+     {
+      "id": "34098e8d-c584-4498-ae9c-748b0aea4a85",
+      "title": "Confiança",
+      "desc": "A confiança mostra que conseguimos entregar produtos de alta qualidade e serviços que os nossos parceiros podem confiar",
+      "language": "PT",
+      "image": [
+        {
+          "url": "/assets/trust.jpg"
+        }
+      ]
+    },
+     {
+      "id": "770ec4a9-8a4e-46b2-9670-f2c9d6f6aff8",
+      "title": "Colaboração",
+      "desc": "A colaboração reflete o nosso compromisso em fomentar parcerias fortes com empresas, comunidades e stakeholders, de forma a atingir em conjunto objetivos sustentáveis",
+      "language": "PT",
+      "image": [
+        {
+          "url": "/assets/colab.jpg"
+        }
+      ]
+    },
+     {
+      "id": "18fec866-c533-46f8-8ff5-e6c4a5a1d68b",
+      "title": "Inovação",
+      "desc": "Investimos na melhoria contínua e no desenvolvimento de soluções adequadas às necessidades de cada cliente ",
+      "language": "PT",
+      "image": [
+        {
+          "url": "/assets/innovation.jpg"
+        }
+      ]
+    },
+    {
+      "id": "88bd9066-4dc1-467d-9287-d8dc856cd2e7",
+      "title": "Sustentibility",
+      "desc": "Sustainability keeps us focused in our mission to create a better world",
+      "language": "EN",
+      "image": [
+        {
+          "url": "/assets/sustainability.jpg"
+        }
+      ]
+    },
+     {
+      "id": "34d0d97d-c2d3-4728-9827-64fd6afb6ad0",
+      "title": "Reliability",
+      "desc": "Reliability shows that we deliver dependable and high-quality products and services that our partners and customers can trust",
+      "language": "EN",
+      "image": [
+        {
+          "url": "/assets/trust.jpg"
+        }
+      ]
+    },
+     {
+      "id": "66bac648-d195-4b8b-a355-1f015adbc39c",
+      "title": "Collaboration",
+      "desc": "Collaboration reflects that we foster strong partnerships with businesses, communities, and stakeholders to achieve shared sustainability goals",
+      "language": "EN",
+      "image": [
+        {
+          "url": "/assets/colab.jpg"
+        }
+      ]
+    },
+     {
+      "id": "cabe5a53-f7d4-4ad1-aeb6-a27b5d6dfab4",
+      "title": "Innovation",
+      "desc": "We invest in continuous improvement and the development of solutions tailored to the needs of each client.",
+      "language": "EN",
+      "image": [
+        {
+          "url": "/assets/innovation.jpg"
+        }
+      ]
+    }
+    
+  ],
+
+  "Team": [
+    {
+      "id": "e802c61f-f657-49c5-93c1-8633774a7860",
+      "name": "Leandro Madureira",
+      "jobTitle": "Upgrade de Biogás",
+      "language": "PT",
+      "link": "https://www.linkedin.com/in/leandro-madureira/",
+      "picture": [
+        {
+          "url": "/assets/Leandro.jpg"
+        }
+      ]
+    },
+    {
+      "id": "48546beb-33a3-44df-b1b3-83dd99c9e619",
+      "name": "Pedro Geada",
+      "jobTitle": "Upgrade de Biogás",
+      "language": "PT",
+      "link": "https://www.linkedin.com/in/pedro-geada-169a526a/",
+      "picture": [
+        {
+          "url": "/assets/Pedro.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ae9ba2ca-8d24-48b6-abda-77e8233f35b4",
+      "name": "Salomé Duarte",
+      "jobTitle": "Gases Renováveis",
+      "language": "PT",
+      "link": "https://www.linkedin.com/in/salom%C3%A9-duarte-97ab3447/",
+      "picture": [
+        {
+          "url": "/assets/Salomé.jpg"
+        }
+      ]
+    },
+    {
+      "id": "953f358d-2b53-4e78-828a-e58dcfe793d6",
+      "name": "Filipe Maciel",
+      "jobTitle": "Crescimento de Microalgas",
+      "language": "PT",
+      "link": "https://www.linkedin.com/in/filipe-maciel-a882b44b/",
+      "picture": [
+        {
+          "url": "/assets/Filipe.jpg"
+        }
+      ]
+    },
+    {
+      "id": "0b5b0378-df18-4374-9be3-af201ab956cc",
+      "name": "Maria Silva",
+      "jobTitle": "Crescimento de Microalgas",
+      "language": "PT",
+      "link": "linkedin.com/in/maria-j-silva-aab42510b ",
+      "picture": [
+        {
+          "url": "/assets/Maria.jpg"
+        }
+      ]
+    },
+    {
+      "id": "3a32bac0-ef88-42cd-bbd7-f7f7031f2f02",
+      "name": "Daniel Madalena",
+      "jobTitle": "Sistemas de monitorização",
+      "language": "PT",
+      "link": "https://www.linkedin.com/in/daniel-madalena-b3942b95/",
+      "picture": [
+        {
+          "url": "/assets/Daniel.jpg"
+        }
+      ]
+    },
+    {
+      "id": "cc1b9ff5-2c6c-44dc-84f1-3332b987d9c0",
+      "name": "Leandro Madureira",
+      "jobTitle": "Biogas Upgrade",
+      "language": "EN",
+      "link": "https://www.linkedin.com/in/leandro-madureira/",
+      "picture": [
+        {
+          "url": "/assets/Leandro.jpg"
+        }
+      ]
+    },
+    {
+      "id": "89ebd136-2b59-4d25-8258-c227d2c369f2",
+      "name": "Pedro Geada",
+      "jobTitle": "Biogas Upgrade",
+      "language": "EN",
+      "link": "https://www.linkedin.com/in/pedro-geada-169a526a/",
+      "picture": [
+        {
+          "url": "/assets/Pedro.jpg"
+        }
+      ]
+    },
+    {
+      "id": "9572a8e8-2992-4f94-a324-c8a23c382e4f",
+      "name": "Salomé Duarte",
+      "jobTitle": "Renewable Gases",
+      "language": "EN",
+      "link": "https://www.linkedin.com/in/salom%C3%A9-duarte-97ab3447/",
+      "picture": [
+        {
+          "url": "/assets/Salomé.jpg"
+        }
+      ]
+    },
+    {
+      "id": "baf3685a-0b21-450a-83f7-704a360dc6ab",
+      "name": "Filipe Maciel",
+      "jobTitle": "Microalgae Growth",
+      "language": "EN",
+      "link": "https://www.linkedin.com/in/filipe-maciel-a882b44b/",
+      "picture": [
+        {
+          "url": "/assets/Filipe.jpg"
+        }
+      ]
+    },
+    {
+      "id": "c3f8f5a3-0aae-40ca-9b01-755c2c8b8e7a",
+      "name": "Maria Silva",
+      "jobTitle": "Microalgae Growth",
+      "language": "EN",
+      "link": "linkedin.com/in/maria-j-silva-aab42510b ",
+      "picture": [
+        {
+          "url": "/assets/Maria.jpg"
+        }
+      ]
+    },
+    {
+      "id": "e332c16a-970c-4914-b52b-5dfc353e4039",
+      "name": "Daniel Madalena",
+      "jobTitle": "Monitoring Systems",
+      "language": "EN",
+      "link": "https://www.linkedin.com/in/daniel-madalena-b3942b95/",
+      "picture": [
+        {
+          "url": "/assets/Daniel.jpg"
+        }
+      ]
+    }
+  ],
+
+  "Partners": [
+    {
+      "id": "6e467ee8-e695-44ce-8222-8b76367006d0",
+      "title": "TecMinho",
+      "language": "PT",
+      "visible": true,
+      "link": "https://www.tecminho.uminho.pt/",
+      "icon": [
+        {
+          "url": "/assets/tecminho.png"
+        }
+      ],
+      "size": 170
+    },
+    {
+      "id": "b0f2f7a8-f4fb-4d1e-8c9f-f6f62b493a55",
+      "title": "Cesae Digital",
+      "language": "PT",
+      "visible": true,
+      "link": "https://cesaedigital.pt/fldrSite/default.aspx",
+      "icon": [
+        {
+          "url": "/assets/cesae.png"
+        }
+      ],
+      "size": 100
+    },
+    {
+      "id": "d55bea12-b19f-46a4-842d-7e13d330188c",
+      "title": "BlueBio Alliance",
+      "language": "PT",
+      "visible": true,
+      "link": "https://www.bluebioalliance.pt/",
+      "icon": [
+        {
+          "url": "/assets/bba.png"
+        }
+      ],
+      "size": 100
+    },
+    {
+      "id": "576fb85f-1228-4295-b39c-7c0694b56ba3",
+      "title": "Spin-off UM",
+      "language": "PT",
+      "visible": true,
+      "link": "https://www.uminho.pt/PT",
+      "icon": [
+        {
+          "url": "/assets/spinoff.png"
+        }
+      ],
+      "size": 90
+    },
+    {
+      "id": "66545c93-6fe7-4ff1-840f-cc0c7070e565",
+      "title": "TecMinho",
+      "language": "EN",
+      "visible": true,
+      "link": "https://www.tecminho.uminho.pt/",
+      "icon": [
+        {
+          "url": "/assets/tecminho.png"
+        }
+      ],
+      "size": 170
+    },
+    {
+      "id": "4cdf260d-df2e-4553-bd7a-ade21cec05c9",
+      "title": "Cesae Digital",
+      "language": "EN",
+      "visible": true,
+      "link": "https://cesaedigital.pt/fldrSite/default.aspx",
+      "icon": [
+        {
+          "url": "/assets/cesae.png"
+        }
+      ],
+      "size": 100
+    },
+    {
+      "id": "90c27adc-9d0d-43d6-8e44-fe2fba4221f6",
+      "title": "BlueBio Alliance",
+      "language": "EN",
+      "visible": true,
+      "link": "https://www.bluebioalliance.pt/",
+      "icon": [
+        {
+          "url": "/assets/bba.png"
+        }
+      ],
+      "size": 100
+    },
+    {
+      "id": "e27c4dab-d8df-403e-a585-18fd2e16d343",
+      "title": "Spin-off UM",
+      "language": "EN",
+      "visible": true,
+      "link": "https://www.uminho.pt/PT",
+      "icon": [
+        {
+          "url": "/assets/spinoff.png"
+        }
+      ],
+      "size": 90
+    }
+  ],
+
+  "Contacts": [
+    {
+      "id": "9ea2ff6e-48aa-40bd-b5c4-b720a53f552e",
+      "address": "Tecminho Ed 11 Campus de Azurém",
+      "addressCode": "4800-058",
+      "city": "Guimarães",
+      "email": "info@photoup.pt",
+      "link": "https://www.google.com/maps/place/TecMinho+-+Associa%C3%A7%C3%A3o+Universidade-Empresa+para+o+Desenvolvimento/@41.4522774,-8.2912478,17z/data=!4m10!1m2!2m1!1sTecminho+Ed+11+Campus+de+Azur%C3%A9m+4800-058+Guimar%C3%A3es!3m6!1s0xd24efee3f8dd747:0x7bccdf5d304ff63b!8m2!3d41.453857!4d-8.289028!15sCjRUZWNtaW5obyBFZCAxMSBDYW1wdXMgZGUgQXp1csOpbSA0ODAwLTA1OCBHdWltYXLDo2VzkgEXbm9uX3Byb2ZpdF9vcmdhbml6YXRpb26qAYQBCg0vZy8xMWI2Yzd6cmNtCgsvZy8xdGpkc20zdxABKgkiBWVkIDExKAwyHxABIhu_eaeg-Fv5HfOy7KFXLUDFWNFs29FbXQHkSnsyOBACIjR0ZWNtaW5obyBlZCAxMSBjYW1wdXMgZGUgYXp1csOpbSA0ODAwIDA1OCBndWltYXLDo2Vz4AEA!16s%2Fg%2F1tjdsm3w?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D",
+      "language": "PT",
+      "picture": [
+        {
+          "url": "/assets/placeholder_light.png"
+        },
+        {
+          "url": "/assets/placeholder_dark.png"
+        }
+      ]
+    },
+    {
+      "id": "34c1b50b-f5a0-43a2-8ea6-8f039a0bf876",
+      "address": "Tecminho Ed 11 Campus de Azurém",
+      "addressCode": "4800-058",
+      "city": "Guimarães",
+      "email": "info@photoup.pt",
+      "link": "https://www.google.com/maps/place/TecMinho+-+Associa%C3%A7%C3%A3o+Universidade-Empresa+para+o+Desenvolvimento/@41.4522774,-8.2912478,17z/data=!4m10!1m2!2m1!1sTecminho+Ed+11+Campus+de+Azur%C3%A9m+4800-058+Guimar%C3%A3es!3m6!1s0xd24efee3f8dd747:0x7bccdf5d304ff63b!8m2!3d41.453857!4d-8.289028!15sCjRUZWNtaW5obyBFZCAxMSBDYW1wdXMgZGUgQXp1csOpbSA0ODAwLTA1OCBHdWltYXLDo2VzkgEXbm9uX3Byb2ZpdF9vcmdhbml6YXRpb26qAYQBCg0vZy8xMWI2Yzd6cmNtCgsvZy8xdGpkc20zdxABKgkiBWVkIDExKAwyHxABIhu_eaeg-Fv5HfOy7KFXLUDFWNFs29FbXQHkSnsyOBACIjR0ZWNtaW5obyBlZCAxMSBjYW1wdXMgZGUgYXp1csOpbSA0ODAwIDA1OCBndWltYXLDo2Vz4AEA!16s%2Fg%2F1tjdsm3w?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D",
+      "language": "EN",
+      "picture": [
+        {
+          "url": "/assets/placeholder_light.png"
+        },
+        {
+          "url": "/assets/placeholder_dark.png"
+        }
+      ]
+    }
+  ]
+}

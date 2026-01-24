@@ -1,31 +1,32 @@
 "use server"
 
 import { LanguageType } from "@/contexts/locale";
-import base, { IFeaturesTableFields } from "@/utils/airtable";
+import { IFeaturesTableFields } from "@/utils/airtable";
+import fs from 'fs/promises';
+import path from 'path';
 
 export type TGetData = (tableName: string, languageInput: LanguageType) => Promise<IFeaturesTableFields[]>;
 
-export const  getData:TGetData = async (tableName: string, languageInput: LanguageType = "PT") => {
-    try {
-    // Explicitly type the base call and the records array
+export const getData: TGetData = async (tableName: string, languageInput: LanguageType = "PT") => {
+    console.log(`[getData] Fetching from local DB for table: "${tableName}" with language: "${languageInput}"`);
 
-    const records = await base<IFeaturesTableFields>(tableName).select({
-            filterByFormula: `{language} = '${languageInput}'`,
-        }).all();
-        console.log(`Successfully retrieved ${records.length} records from "${tableName}"`);
-        return records.map(record => {
-            return {
-                //@ts-expect-error: the id param exists
-                id: record.id,
-                ...record.fields
-            }
-        }); 
-    } catch (error) {
-        if (error instanceof Error) {
-            console.error("Error fetching records with .all():", error.message);
-        } else {
-            console.error("Unknown error fetching records with .all():", error);
+    try {
+        const filePath = path.join(process.cwd(), 'src', 'data', 'db.json');
+        const fileContents = await fs.readFile(filePath, 'utf8');
+        const db = JSON.parse(fileContents);
+
+        if (!db[tableName]) {
+            console.warn(`[getData] Table "${tableName}" not found in local DB.`);
+            return [];
         }
+
+        const records = db[tableName].filter((record: any) => record.language === languageInput);
+
+        console.log(`[getData] Successfully retrieved ${records.length} records from "${tableName}"`);
+        return records;
+
+    } catch (error) {
+        console.error("Error reading local DB:", error);
         return [];
     }
 }
