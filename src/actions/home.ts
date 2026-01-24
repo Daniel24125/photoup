@@ -2,8 +2,7 @@
 
 import { LanguageType } from "@/contexts/locale";
 import { IFeaturesTableFields } from "@/utils/airtable";
-import fs from 'fs/promises';
-import path from 'path';
+import dbData from "@/data/db.json";
 
 export type TGetData = (tableName: string, languageInput: LanguageType) => Promise<IFeaturesTableFields[]>;
 
@@ -11,9 +10,8 @@ export const getData: TGetData = async (tableName: string, languageInput: Langua
     console.log(`[getData] Fetching from local DB for table: "${tableName}" with language: "${languageInput}"`);
 
     try {
-        const filePath = path.join(process.cwd(), 'src', 'data', 'db.json');
-        const fileContents = await fs.readFile(filePath, 'utf8');
-        const db = JSON.parse(fileContents);
+        // cast to any or Record<string, any> to allow dynamic access by tableName
+        const db = dbData as Record<string, any>;
 
         if (!db[tableName]) {
             console.warn(`[getData] Table "${tableName}" not found in local DB.`);
