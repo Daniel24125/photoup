@@ -14,7 +14,7 @@ export const getData: TGetData = async (tableName: string, languageInput: Langua
         const db = dbData as Record<string, any>;
 
         if (!db[tableName]) {
-            console.warn(`[getData] Table "${tableName}" not found in local DB.`);
+            console.warn(`[getData] Table "${tableName}" not found in local DB. `);
             return [];
         }
 
@@ -24,7 +24,7 @@ export const getData: TGetData = async (tableName: string, languageInput: Langua
         return records;
 
     } catch (error) {
-        console.error("Error reading local DB:", error);
+        console.error("Error reading local DB: ", error);
         return [];
     }
 }
